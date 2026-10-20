@@ -1,0 +1,338 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Généalogie de l'autonomie</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout : frise matricielle — lignes = périodes, colonnes = pôles ; filiations tracées en surimpression ; fiche détail ; cartes des six pôles ; tableau des lignes de fracture */
+:root{
+  --bg:#eef0f2; --paper:#ffffff; --ink:#16181c; --muted:#5b616b; --line:#d3d7dd; --soft:#e4e7eb;
+  --p-mom:#3d4450; --p-ins:#b23a2e; --p-ope:#b0700f; --p-app:#6a4c9c; --p-eco:#2f7d4f; --p-tec:#4f6475; --p-afa:#b03a6a;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"Public Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111316; --paper:#191c21; --ink:#e8eaee; --muted:#9aa1ab; --line:#2d323a; --soft:#22262c;
+  --p-mom:#aab3c0; --p-ins:#e36b5e; --p-ope:#e0a246; --p-app:#a98ae0; --p-eco:#5fbf86; --p-tec:#93aabd; --p-afa:#e47aa5; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111316; --paper:#191c21; --ink:#e8eaee; --muted:#9aa1ab; --line:#2d323a; --soft:#22262c;
+  --p-mom:#aab3c0; --p-ins:#e36b5e; --p-ope:#e0a246; --p-app:#a98ae0; --p-eco:#5fbf86; --p-tec:#93aabd; --p-afa:#e47aa5; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px;display:grid;gap:30px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(40px,7vw,76px);line-height:.92;margin:4px 0 0;letter-spacing:.005em;text-transform:uppercase;text-wrap:balance}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(26px,3.6vw,36px);line-height:1;margin:0;text-transform:uppercase;letter-spacing:.01em}
+.lede{margin:0;max-width:74ch;color:var(--muted)}
+header{display:grid;gap:12px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.sw{width:11px;height:11px;border-radius:2px;display:inline-block}
+section{display:grid;gap:16px}
+.hint{font-size:13px;color:var(--muted);margin:0}
+
+/* frise */
+.scroller{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:6px}
+.frise{position:relative;min-width:1180px}
+.grid{display:grid;grid-template-columns:118px repeat(7,minmax(0,1fr));position:relative;z-index:1}
+.hcell{font-family:var(--display);font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:.02em;padding:12px 8px 10px;border-bottom:2px solid var(--ink);position:sticky;top:0;background:var(--paper);line-height:1.05}
+.hcell small{display:block;font-family:var(--mono);font-weight:400;font-size:10.5px;text-transform:none;letter-spacing:0;color:var(--muted);margin-top:3px}
+.per{font-family:var(--mono);font-size:12px;color:var(--muted);padding:12px 8px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+.per b{display:block;font-family:var(--display);font-size:22px;color:var(--ink);font-weight:700;line-height:1}
+.cell{border-top:1px solid var(--line);border-left:1px dashed var(--line);padding:10px 7px;display:flex;flex-direction:column;gap:7px;min-width:0}
+.chip{all:unset;box-sizing:border-box;cursor:pointer;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:5px 7px 6px;font-size:12.5px;line-height:1.3;display:grid;gap:1px;position:relative}
+.chip .y{font-family:var(--mono);font-size:11px;display:flex;align-items:center;gap:5px;color:var(--muted)}
+.chip .y i{width:7px;height:7px;border-radius:50%;display:inline-block}
+.chip:hover{border-color:var(--ink)}
+.chip:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
+.chip.sel{border-color:var(--ink);box-shadow:0 0 0 2px var(--ink) inset}
+.chip.rel{border-color:var(--ink)}
+.frise.dim .chip:not(.sel):not(.rel){opacity:.38}
+svg.links{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:visible}
+svg.links path{fill:none;stroke:var(--muted);stroke-width:1.2;opacity:.35}
+svg.links path.on{stroke:var(--ink);stroke-width:2;opacity:.9}
+svg.links marker path{fill:var(--muted);stroke:none;opacity:1}
+
+/* détail */
+.detail{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:18px 20px;display:grid;gap:10px}
+.detail .tag{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+.detail h3{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;margin:0;text-transform:uppercase}
+.detail p{margin:0;max-width:78ch}
+.rels{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px}
+.rels b{font-weight:600;color:var(--muted);margin-right:4px}
+.mini{all:unset;cursor:pointer;font-size:12.5px;border:1px solid var(--line);border-radius:999px;padding:2px 10px;background:var(--soft)}
+.mini:hover,.mini:focus-visible{border-color:var(--ink)}
+
+/* pôles */
+.poles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:980px){.poles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.poles{grid-template-columns:minmax(0,1fr)}}
+.pole{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:16px 18px;display:grid;gap:9px;align-content:start;border-top:5px solid var(--c)}
+.pole h3{font-family:var(--display);font-weight:700;font-size:24px;line-height:1;margin:0;text-transform:uppercase}
+.pole .core{margin:0;font-size:14px}
+.pole dl{margin:0;display:grid;gap:6px;font-size:13.5px}
+.pole dt{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.pole dd{margin:0}
+.chain{font-family:var(--mono);font-size:12px;line-height:1.6}
+.force{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px}
+.force .bar{flex:1;height:7px;background:var(--soft);border-radius:4px;overflow:hidden;max-width:160px}
+.force .bar i{display:block;height:100%;background:var(--c)}
+
+/* fractures */
+.tbl{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:6px}
+table{border-collapse:collapse;width:100%;min-width:860px;font-size:13.5px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:500}
+tbody th{font-weight:600;white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
+.note{font-size:13px;color:var(--muted);max-width:86ch;border-top:1px solid var(--line);padding-top:14px;margin:0}
+@media (prefers-reduced-motion:no-preference){svg.links path{transition:opacity .15s,stroke-width .15s}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Gauche radicale non parlementaire · France et Europe · état en octobre 2026</div>
+    <h1>Généalogie de l'autonomie</h1>
+    <p class="lede">Six pôles de pensée irriguent aujourd'hui les mouvances autonomes, le black bloc, les ZAD et l'écologie radicale. Chacun a sa propre lignée intellectuelle, et ils se croisent dans la rue. La frise montre les moments clés et les héritages ; cliquez sur une étiquette pour voir d'où elle vient et ce qu'elle a transmis.</p>
+    <div class="legend" id="legend"></div>
+  </header>
+
+  <section aria-labelledby="t-frise">
+    <h2 id="t-frise">La frise</h2>
+    <p class="hint">Les traits relient une source à ce qui en hérite. Sur un écran étroit, faites défiler la frise horizontalement.</p>
+    <div class="scroller"><div class="frise" id="frise"><svg class="links" id="links" aria-hidden="true"></svg><div class="grid" id="grid"></div></div></div>
+    <div class="detail" id="detail" aria-live="polite"></div>
+  </section>
+
+  <section aria-labelledby="t-poles">
+    <h2 id="t-poles">Les six pôles en 2026</h2>
+    <p class="hint">La jauge « poids en 2026 » est une appréciation qualitative de l'influence actuelle sur les mobilisations, pas une mesure.</p>
+    <div class="poles" id="poles"></div>
+  </section>
+
+  <section aria-labelledby="t-frac">
+    <h2 id="t-frac">Les lignes de fracture</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>Question</th><th>Appellistes</th><th>Écologie radicale</th><th>Antifascisme</th><th>Insurrectionnalistes</th><th>Post-opéraïstes</th><th>Technocritiques</th></tr></thead>
+      <tbody>
+        <tr><th>Rapport à l'État</th><td>Destituer, jamais prendre</td><td>Pression et désobéissance, recours au juge</td><td>Autodéfense, pont avec des élus</td><td>Attaquer</td><td>Conquérir des droits</td><td>Critique de l'État technicien</td></tr>
+        <tr><th>Revendiquer ?</th><td>Non</td><td>Oui (moratoires, partage de l'eau)</td><td>Oui (dissolutions, police)</td><td>Non</td><td>Oui (revenu garanti)</td><td>Rarement</td></tr>
+        <tr><th>Technologie</th><td>Bloquer les infrastructures</td><td>Méfiance, sobriété</td><td>Peu thématisée</td><td>Cible ponctuelle</td><td>Émancipatrice (savoir en réseau)</td><td>L'ennemi principal</td></tr>
+        <tr><th>Violence</th><td>Question de « puissance »</td><td>« Désarmement » des installations</td><td>Autodéfense revendiquée</td><td>Action directe assumée</td><td>Secondaire</td><td>Refus (écriture, enquête)</td></tr>
+        <tr><th>Sujet politique</th><td>Communes, « amis »</td><td>Habitants, paysans, vivants</td><td>Minorités ciblées, quartiers</td><td>Individus révoltés</td><td>Multitude, précaires</td><td>Humains face à la machine</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <p class="note">Synthèse établie à partir des textes des courants et de la littérature de référence (Dupuis-Déri, Kristin Ross, travaux sur l'opéraïsme). Les dates sont celles des publications ou des événements ; certaines sont arrondies (Pièces et main d'œuvre « début des années 2000 », propagande par le fait « années 1880 »). Les jauges sont une appréciation, et les attributions d'actions violentes à une mouvance ne valent que lorsqu'elles ont été établies par la justice ou revendiquées.</p>
+</div>
+
+<script>
+const POLES=[
+ {k:'mom',n:'Tronc commun',s:'racines anarchistes, moments de rue'},
+ {k:'app',n:'Appellistes',s:'destituer, bloquer'},
+ {k:'eco',n:'Écologie radicale',s:'territoires, terrestres'},
+ {k:'afa',n:'Antifascisme',s:'autodéfense, antiracisme'},
+ {k:'ins',n:'Insurrectionnalistes',s:'action directe, black bloc'},
+ {k:'ope',n:'Post-opéraïstes',s:'autonomie, multitude'},
+ {k:'tec',n:'Technocritiques',s:'anti-industriels'}
+];
+const PER=[[0,1959,'Racines','1811–1959'],[1960,1969,'1960','années 60'],[1970,1979,'1970','années 70'],[1980,1989,'1980','années 80'],[1990,1999,'1990','années 90'],[2000,2009,'2000','années 2000'],[2010,2019,'2010','années 2010'],[2020,2026,'2020','2020–2026']];
+const E=[
+ // racines ajoutées
+ ['p1840','mom',1840,"Proudhon, Qu'est-ce que la propriété ?","« La propriété, c'est le vol. » Premier penseur à se dire anarchiste : mutualisme, fédéralisme, autogestion. Les proudhoniens pèsent dans la Commune de 1871."],
+ ['b1872','mom',1872,'Bakounine, congrès de Saint-Imier',"Exclu de l'Internationale par les marxistes, Bakounine fonde avec les fédérations anti-autoritaires la branche anarchiste du mouvement ouvrier : refus de tout État, même ouvrier, et primat de la révolte."],
+ ['l1883','mom',1883,'Louise Michel et le drapeau noir',"Figure de la Commune, déportée en Nouvelle-Calédonie, elle brandit le drapeau noir lors d'une manifestation de chômeurs aux Invalides en mars 1883. Le noir devient la couleur de l'anarchisme, jusqu'au black bloc."],
+ ['y1893','eco',1893,'Tolstoï, Le Royaume de Dieu est en vous',"Anarchisme chrétien et non-violence. Par Gandhi puis Lanza del Vasto, présent au Larzac, il inspire la branche non violente des luttes territoriales, jusqu'à la désobéissance civile actuelle."],
+ ['k1902','eco',1902,"Kropotkine, L'Entraide","Contre le darwinisme social, la coopération est un facteur de l'évolution. Socle de l'anarchisme communiste et, par Bookchin, de l'écologie sociale et de l'imaginaire des communes."],
+ ['s2005','tec',2005,'Stiegler, Ars Industrialis',"Bernard Stiegler pense la technique comme « pharmakon », à la fois poison et remède. Il critique le capitalisme numérique sans rejeter la technique : contrepoint réformiste aux anti-industriels."],
+ // moments
+ ['m1871','mom',1871,'Commune de Paris',"Soixante-douze jours d'autogouvernement parisien. Référence mythique de toute la tradition : la « commune » comme forme politique hors de l'État, reprise par les anarchistes, les appellistes et les zadistes."],
+ ['m1968','mom',1968,'Mai 68',"Grève générale et révolte étudiante. Matrice de la critique des appareils (PCF, CGT) et de l'idée que le mouvement peut déborder ses organisations."],
+ ['m1977','mom',1977,'Mouvement de 77 en Italie',"Apogée et crise de l'Autonomia italienne : occupations, radios libres, affrontements. La répression qui suit (1979) disperse le courant, dont une partie s'exile en France."],
+ ['m1999','mom',1999,'Seattle, sommet de l\'OMC',"Naissance médiatique de l'altermondialisme et du black bloc à l'échelle mondiale."],
+ ['m2001','mom',2001,'Gênes, G8',"Mort de Carlo Giuliani, violences policières à l'école Diaz. Mythe fondateur ; le mouvement altermondialiste se sépare de sa frange radicale."],
+ ['m2005','mom',2005,'Émeutes des banlieues',"Trois semaines d'émeutes après la mort de Zyed et Bouna. Lues comme acte politique par Moulier Boutang et par L'Insurrection qui vient, qui s'ouvre sur elles."],
+ ['m2016','mom',2016,'Loi Travail, cortège de tête',"Des milliers de manifestants se placent devant les syndicats. Innovation tactique majeure qui brouille la frontière entre autonomes et manifestants ordinaires."],
+ ['m2018','mom',2018,'Gilets jaunes',"Mouvement populaire hors des partis et syndicats. Les autonomes y voient la confirmation d'une insurrection sans organisation, mais en restent minoritaires."],
+ ['m2023','mom',2023,'Retraites, émeutes après la mort de Nahel',"Mobilisation syndicale massive au printemps, puis émeutes urbaines très destructrices en juin-juillet, sans lien avec les mouvances organisées."],
+ ['m2025','mom',2025,'« Bloquons tout »',"Appel de septembre 2025 : le vocabulaire du blocage des flux devient mainstream."],
+ ['m2026','mom',2026,'Mouvement lycéen, mairie de Limoges',"Mobilisation lycéenne et étudiante de l'automne 2026 ; hôtel de ville de Limoges incendié le 17 octobre. Auteurs et appartenances encore à établir par l'enquête."],
+ // appellistes
+ ['a1967','app',1967,'Debord, La Société du spectacle',"Texte central de l'Internationale situationniste : critique de la marchandise devenue image. Source du style et de la radicalité des post-situationnistes et de Tiqqun."],
+ ['a1995','app',1995,'Agamben, Homo Sacer',"Début du cycle du philosophe italien sur la souveraineté et l'état d'exception. Il fournira le concept de « pouvoir destituant »."],
+ ['a1999','app',1999,'Revue Tiqqun',"Deux numéros (1999, 2001) : Théorie du Bloom, Jeune-Fille, L'Hypothèse cybernétique. Fusion du situationnisme, de l'autonomie italienne et d'Agamben."],
+ ['a2003','app',2003,"L'Appel",'Texte anonyme qui donne son nom au courant « appelliste » : se trouver, former des communes, sortir de l\'économie.'],
+ ['a2007','app',2007,"L'Insurrection qui vient","Comité invisible, La Fabrique. Diagnostic des « sept cercles » et appel à bloquer l'économie. Devient célèbre avec l'affaire de Tarnac."],
+ ['a2008','app',2008,'Affaire de Tarnac',"Sabotages de caténaires SNCF ; l'État désigne un groupe de Corrèze et parle d'« ultragauche ». Qualification terroriste abandonnée en cours de procédure."],
+ ['a2014','app',2014,'À nos amis ; lundimatin',"Le pouvoir « réside dans les infrastructures ». Création du site lundimatin, principal média de la mouvance."],
+ ['a2017','app',2017,'Maintenant',"Troisième livre du Comité invisible, après 2016 : destituer plutôt que constituer, vivre le communisme dès à présent."],
+ ['a2018','app',2018,'Relaxe de Tarnac',"Le procès se conclut par une relaxe quasi générale. L'affaire reste citée comme fiasco judiciaire."],
+ // écologie radicale
+ ['e1971','eco',1971,'Larzac',"Dix ans de lutte paysanne et militante contre l'extension d'un camp militaire, victorieuse en 1981. Ancêtre direct des ZAD."],
+ ['e1977','eco',1977,'Creys-Malville',"Grande manifestation contre le surgénérateur Superphénix ; mort du manifestant Vital Michalon."],
+ ['e1980','eco',1980,'Plogoff',"Victoire contre un projet de centrale nucléaire en Bretagne, par une mobilisation locale massive."],
+ ['e1982','eco',1982,'Bookchin, The Ecology of Freedom',"Écologie sociale et municipalisme libertaire : la domination de la nature prolonge la domination entre humains."],
+ ['e2009','eco',2009,'ZAD de Notre-Dame-des-Landes',"L'occupation contre l'aéroport s'intensifie et prend le nom de « zone à défendre ». Modèle exporté (Bure, Sivens, Roybon)."],
+ ['e2014','eco',2014,'Sivens',"Mort de Rémi Fraisse, tué par une grenade lors d'affrontements sur le chantier d'un barrage."],
+ ['e2017','eco',2017,'Latour, Où atterrir ?',"La question politique devient celle du sol et des milieux habitables. Pensée « terrestre » prolongée par Descola et Morizot."],
+ ['e2018','eco',2018,"Abandon de l'aéroport","Le gouvernement renonce au projet en janvier ; la ZAD est partiellement évacuée au printemps. Grande victoire de la mouvance."],
+ ['e2021','eco',2021,'Soulèvements de la Terre ; Malm',"Coalition entre anciens de la ZAD, paysans et militants du climat. Andreas Malm publie Comment saboter un pipeline."],
+ ['e2023','eco',2023,'Sainte-Soline ; dissolution annulée',"Affrontements très violents contre les méga-bassines en mars. Dissolution des Soulèvements prononcée en juin, annulée par le Conseil d'État en novembre."],
+ // antifascisme
+ ['f1984','afa',1984,'SCALP',"Section carrément anti-Le Pen : premiers groupes antifascistes radicaux liés à la scène punk et libertaire, face à la montée du FN."],
+ ['f2005','afa',2005,'Appel des Indigènes de la République',"Naissance de l'antiracisme politique et décolonial en France ; il influencera la lecture des violences policières et des banlieues."],
+ ['f2013','afa',2013,'Mort de Clément Méric',"Militant antifasciste tué lors d'une rixe avec des skinheads à Paris. Événement fondateur pour une génération antifa."],
+ ['f2016','afa',2016,"Mort d'Adama Traoré","Décès après une interpellation ; le comité Vérité et Justice devient le pont entre quartiers populaires et gauche radicale."],
+ ['f2017','afa',2017,'Dorlin, Se défendre',"Philosophie de la violence et de l'autodéfense des dominés : référence théorique de l'antifascisme et du féminisme radicaux."],
+ ['f2018','afa',2018,'Jeune Garde',"Groupe antifasciste fondé à Lyon, puis implanté dans plusieurs villes."],
+ ['f2022','afa',2022,'GALE devant le Conseil d\'État',"Le Groupe antifasciste Lyon et environs fait l'objet d'une procédure de dissolution contestée devant la justice administrative."],
+ ['f2024','afa',2024,'Raphaël Arnault député',"Le cofondateur de la Jeune Garde est élu député LFI : principal pont entre antifascisme radical et Assemblée nationale."],
+ ['f2025','afa',2025,'Dissolution de la Jeune Garde',"Dissolution administrative ; le dossier nourrit l'accusation de « proxys » portée contre LFI."],
+ // insurrectionnalistes
+ ['i1880','ins',1880,'Propagande par le fait',"Doctrine anarchiste des années 1880 : l'acte exemplaire plutôt que le discours. Elle aboutira aux attentats des années 1890."],
+ ['i1977','ins',1977,'Bonanno, La Joie armée',"Alfredo Bonanno théorise l'anarchisme insurrectionnaliste : informalité, attaque, refus de toute revendication."],
+ ['i1981','ins',1981,'Autonomen et bloc noir',"En Allemagne, les autonomes des squats et des luttes antinucléaires (Brokdorf) inventent le bloc vêtu de noir."],
+ ['i2008','ins',2008,'Émeutes de décembre en Grèce',"Mort d'Alexandros Grigoropoulos à Exarchia. Des semaines d'émeutes ; Exarchia devient la capitale symbolique de l'anarchisme européen."],
+ ['i2018','ins',2018,'1er mai à Paris',"Environ 1 200 black blocs selon les autorités, un record en France."],
+ ['i2024','ins',2024,'Sabotages du réseau TGV',"Le jour de l'ouverture des JO ; les enquêteurs orientent leurs soupçons vers l'ultragauche."],
+ // post-opéraïstes
+ ['o1961','ope',1961,'Quaderni rossi',"Revue de Raniero Panzieri : retour à l'enquête ouvrière contre l'orthodoxie du PCI. Naissance de l'operaismo."],
+ ['o1966','ope',1966,'Tronti, Ouvriers et capital',"Le « renversement copernicien » : ce sont les luttes ouvrières qui font l'histoire, le capital ne fait que s'y adapter."],
+ ['o1973','ope',1973,'Autonomia operaia',"Dissolution de Potere operaio ; naissance de l'autonomie comme mouvement diffus, sans parti. Refus du travail."],
+ ['o1977','ope',1977,'Revue Camarades',"Yann Moulier Boutang importe l'autonomie italienne en France."],
+ ['o1979','ope',1979,'Arrestation de Negri',"Rafle du 7 avril contre les intellectuels de l'Autonomia. Negri s'exile ensuite en France."],
+ ['o1998','ope',1998,"De l'esclavage au salariat","Moulier Boutang : l'histoire du capitalisme est celle du contrôle de la fuite de la main-d'œuvre. Le migrant devient figure politique."],
+ ['o2000','ope',2000,'Empire ; revue Multitudes',"Hardt et Negri théorisent la « multitude » ; Negri et Moulier Boutang fondent la revue Multitudes."],
+ ['o2003','ope',2003,'Intermittents et précaires',"La CIP-IDF met en pratique la figure du précaire comme sujet politique."],
+ ['o2007','ope',2007,'Le Capitalisme cognitif',"Moulier Boutang : la valeur naît de la coopération sociale et du savoir. Le courant se tourne vers le revenu garanti."],
+ ['o2023','ope',2023,'Mort de Toni Negri',"Décembre 2023. Le pôle post-opéraïste perd sa figure tutélaire et pèse peu dans les mobilisations actuelles."],
+ // technocritiques
+ ['t1811','tec',1811,'Luddites',"Ouvriers anglais qui brisent les machines textiles. Figure revendiquée par toute la critique anti-industrielle."],
+ ['t1954','tec',1954,'Ellul, La Technique',"La technique devient un système autonome qui impose sa logique à la société. Avec Charbonneau, fondement de la technocritique française."],
+ ['t1973','tec',1973,'Illich, La Convivialité',"Au-delà d'un certain seuil, les outils asservissent au lieu de servir. Source de l'écologie politique et de la décroissance."],
+ ['t1984','tec',1984,'Encyclopédie des Nuisances',"Post-situationnistes anti-industriels (René Riesel, Jaime Semprun) : le progrès technique n'émancipe pas."],
+ ['t1999','tec',1999,"Destructions d'OGM","Avec la Confédération paysanne, René Riesel participe à la destruction de cultures transgéniques."],
+ ['t2001','tec',2001,'Pièces et main d\'œuvre',"Collectif d'enquête grenoblois apparu au début des années 2000 : nanotechnologies, contrôle numérique, « société de contrainte »."],
+ ['t2006','tec',2006,'Contre Minatec',"Mobilisation contre l'inauguration du pôle grenoblois de micro et nanotechnologies."],
+ ['t2017','tec',2017,'Manifeste des chimpanzés du futur',"Critique du transhumanisme. Les positions de PMO sur la reproduction et le genre les isolent d'une partie de l'extrême gauche."]
+];
+const L=[
+ ['p1840','b1872'],['p1840','m1871'],['b1872','i1880'],['b1872','k1902'],['m1871','l1883'],['l1883','i1981'],['k1902','e1982'],['y1893','e1971'],
+ ['m1871','i1880'],['m1871','e2009'],['m1871','a2003'],['m1968','o1973'],['m1968','t1984'],
+ ['a1967','t1984'],['a1967','a1999'],['a1995','a1999'],['o1973','a1999'],['a1999','a2003'],['a2003','a2007'],['m2005','a2007'],['a2007','a2008'],['a2008','a2018'],['a2007','a2014'],['e2009','a2014'],['a2014','a2017'],['m2016','a2017'],['a2014','m2025'],
+ ['o1961','o1966'],['o1966','o1973'],['o1973','o1977'],['m1977','o1979'],['o1977','o1998'],['o1998','o2000'],['o2000','o2003'],['o2000','o2007'],
+ ['i1880','i1977'],['i1977','i1981'],['i1981','m1999'],['m1999','m2001'],['m2001','i2008'],['i1981','i2018'],['m2016','i2018'],
+ ['e1971','e2009'],['e1982','e2009'],['e2009','e2018'],['e2018','e2021'],['e2017','e2021'],['e2021','e2023'],['t1973','e2021'],['e1977','e1980'],
+ ['t1811','t1954'],['t1954','t1984'],['t1984','t1999'],['t1984','t2001'],['t2001','t2006'],['t2001','t2017'],
+ ['f1984','f2018'],['f2013','f2018'],['f2017','f2018'],['f2018','f2024'],['f2018','f2025'],['f2005','f2016'],['m2005','f2005']
+];
+const POLE_CARDS=[
+ {k:'app',n:'Appellistes ou destituants',w:8,
+  core:"Le pouvoir n'est plus au centre mais dans les infrastructures. Il faut le rendre inopérant (destituer, bloquer) plutôt que le prendre, et former des communes.",
+  chain:"Situationnisme → Agamben → Tiqqun → L'Appel → Comité invisible → lundimatin",
+  who:"Comité invisible (anonyme), lundimatin ; arrière-plan : Agamben",
+  now:"Influence diffuse très forte : le vocabulaire du blocage et le refus des porte-parole sont repris bien au-delà du courant."},
+ {k:'eco',n:'Écologie radicale',w:8,
+  core:"Défendre les milieux vivants et les usages du territoire (eau, sols, bocage) contre les grands projets, par l'occupation et le « désarmement » des installations.",
+  chain:"Kropotkine, Tolstoï → Larzac → luttes antinucléaires → Bookchin, Illich → ZAD → Latour, Descola → Malm → Soulèvements de la Terre",
+  who:"Soulèvements de la Terre, Bassines Non Merci, Confédération paysanne ; Malm, Kristin Ross, Damasio",
+  now:"Le pôle le plus mobilisateur et le plus légitime socialement, grâce à l'alliance avec des paysans et des habitants."},
+ {k:'afa',n:'Antifascisme et antiracisme politique',w:7,
+  core:"Autodéfense face à l'extrême droite et aux violences policières ; lecture raciale et décoloniale des quartiers populaires.",
+  chain:"SCALP → AFA, GALE → Jeune Garde ; Indigènes de la République → comité Adama ; Dorlin",
+  who:"Action antifasciste Paris-Banlieue, comité Vérité et Justice pour Adama ; Elsa Dorlin ; Raphaël Arnault",
+  now:"Forte présence dans les cortèges et principal pont avec la gauche parlementaire, d'où les procès en « proxys » et les dissolutions."},
+ {k:'ins',n:'Anarchisme insurrectionnaliste',w:5,
+  core:"Attaque directe contre les symboles de l'État et du capital, organisation informelle, refus de toute revendication et de toute médiation.",
+  chain:"Proudhon, Bakounine, Louise Michel → propagande par le fait → Bonanno → Autonomen allemands → black bloc altermondialiste → Exarchia",
+  who:"Aucune figure publique par principe ; analyse de référence : Francis Dupuis-Déri",
+  now:"Minoritaire mais très visible dans la rue. Fournit la tactique du black bloc, adoptée ponctuellement par des inorganisés."},
+ {k:'ope',n:'Post-opéraïstes',w:3,
+  core:"Les luttes précèdent le capital. Le sujet politique est la multitude des précaires et des migrants, et la revendication phare est le revenu garanti.",
+  chain:"Panzieri, Tronti → Autonomia → Negri, Moulier Boutang → Empire, Multitudes → capitalisme cognitif",
+  who:"Héritage de Negri (mort en 2023), Moulier Boutang, Lazzarato",
+  now:"En déclin comme courant, mais sa grammaire subsiste : refus des médiations, centralité des marges, lecture politique de l'émeute."},
+ {k:'tec',n:'Technocritiques anti-industriels',w:4,
+  core:"La technique et l'industrie sont la forme principale de la domination ; critique du numérique, de la surveillance et du transhumanisme.",
+  chain:"Luddites → Ellul, Charbonneau, Illich → Encyclopédie des Nuisances → Pièces et main d'œuvre",
+  who:"Pièces et main d'œuvre (Grenoble), éditions L'Échappée ; contrepoint réformiste : Bernard Stiegler",
+  now:"Isolés politiquement, mais leurs thèmes montent : IA, data centers, consommation d'eau de l'industrie, smart city."}
+];
+const by=Object.fromEntries(E.map(e=>[e[0],{id:e[0],p:e[1],y:e[2],t:e[3],d:e[4]}]));
+const pname=k=>POLES.find(p=>p.k===k).n;
+const col=k=>`var(--p-${k})`;
+
+// légende
+document.getElementById('legend').innerHTML=POLES.map(p=>`<span><i class="sw" style="background:${col(p.k)}"></i>${p.n}</span>`).join('');
+
+// grille
+const grid=document.getElementById('grid');
+let h='<div class="hcell">Période</div>'+POLES.map(p=>`<div class="hcell" style="color:${col(p.k)}">${p.n}<small>${p.s}</small></div>`).join('');
+PER.forEach(([a,b,lab,sub])=>{
+  h+=`<div class="per"><b>${lab}</b>${sub}</div>`;
+  POLES.forEach(p=>{
+    const items=Object.values(by).filter(e=>e.p===p.k&&e.y>=a&&e.y<=b).sort((x,y)=>x.y-y.y);
+    h+=`<div class="cell">${items.map(e=>`<button type="button" class="chip" data-id="${e.id}"><span class="y"><i style="background:${col(e.p)}"></i>${e.y}</span>${e.t}</button>`).join('')}</div>`;
+  });
+});
+grid.innerHTML=h;
+
+// liens
+const frise=document.getElementById('frise'),svg=document.getElementById('links');
+const NS='http://www.w3.org/2000/svg';
+let cur='a2007';
+function drawLinks(){
+  const W=frise.getBoundingClientRect();
+  svg.setAttribute('width',frise.scrollWidth);svg.setAttribute('height',frise.scrollHeight);
+  svg.innerHTML='<defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 z"/></marker></defs>';
+  L.forEach(([a,b])=>{
+    const A=frise.querySelector(`[data-id="${a}"]`),B=frise.querySelector(`[data-id="${b}"]`);if(!A||!B)return;
+    const ra=A.getBoundingClientRect(),rb=B.getBoundingClientRect();
+    let x1=ra.left-W.left+ra.width/2,y1=ra.bottom-W.top,x2=rb.left-W.left+rb.width/2,y2=rb.top-W.top;
+    if(y2<y1+6){ // même rangée : relier par les côtés
+      y1=ra.top-W.top+ra.height/2;y2=rb.top-W.top+rb.height/2;
+      if(x2>x1){x1=ra.right-W.left;x2=rb.left-W.left}else{x1=ra.left-W.left;x2=rb.right-W.left}
+      const p=document.createElementNS(NS,'path');p.setAttribute('d',`M${x1},${y1} C${(x1+x2)/2},${y1-30} ${(x1+x2)/2},${y2-30} ${x2},${y2}`);
+      p.dataset.a=a;p.dataset.b=b;p.setAttribute('marker-end','url(#ah)');svg.appendChild(p);return;
+    }
+    const my=(y1+y2)/2;
+    const p=document.createElementNS(NS,'path');p.setAttribute('d',`M${x1},${y1} C${x1},${my} ${x2},${my} ${x2},${y2}`);
+    p.dataset.a=a;p.dataset.b=b;p.setAttribute('marker-end','url(#ah)');svg.appendChild(p);
+  });
+  mark();
+}
+function mark(){
+  const rel=new Set();
+  svg.querySelectorAll('path[data-a]').forEach(p=>{const on=p.dataset.a===cur||p.dataset.b===cur;p.classList.toggle('on',on);if(on){rel.add(p.dataset.a);rel.add(p.dataset.b)}});
+  frise.classList.add('dim');
+  frise.querySelectorAll('.chip').forEach(c=>{c.classList.toggle('sel',c.dataset.id===cur);c.classList.toggle('rel',rel.has(c.dataset.id)&&c.dataset.id!==cur)});
+}
+function select(id){
+  cur=id;const e=by[id];
+  const from=L.filter(l=>l[1]===id).map(l=>by[l[0]]),to=L.filter(l=>l[0]===id).map(l=>by[l[1]]);
+  const btns=a=>a.map(x=>`<button type="button" class="mini" data-go="${x.id}">${x.y} · ${x.t}</button>`).join('');
+  document.getElementById('detail').innerHTML=`<span class="tag" style="color:${col(e.p)}">${pname(e.p)} · ${e.y}</span><h3>${e.t}</h3><p>${e.d}</p>
+   ${from.length?`<div class="rels"><b>Hérite de</b>${btns(from)}</div>`:''}
+   ${to.length?`<div class="rels"><b>Transmet à</b>${btns(to)}</div>`:''}`;
+  document.querySelectorAll('#detail .mini').forEach(b=>b.addEventListener('click',()=>select(b.dataset.go)));
+  mark();
+}
+grid.addEventListener('click',ev=>{const c=ev.target.closest('.chip');if(c)select(c.dataset.id)});
+
+// cartes pôles
+document.getElementById('poles').innerHTML=POLE_CARDS.map(p=>`<article class="pole" style="--c:${col(p.k)}">
+  <h3>${p.n}</h3><p class="core">${p.core}</p>
+  <dl><div><dt>Généalogie</dt><dd class="chain">${p.chain}</dd></div>
+  <div><dt>Relais et références</dt><dd>${p.who}</dd></div>
+  <div><dt>Situation en 2026</dt><dd>${p.now}</dd></div></dl>
+  <div class="force"><span>Poids en 2026</span><span class="bar"><i style="width:${p.w*10}%"></i></span><span>${p.w}/10</span></div></article>`).join('');
+
+select(cur);
+drawLinks();
+try{document.fonts.ready.then(drawLinks)}catch(e){}
+try{new ResizeObserver(()=>drawLinks()).observe(frise)}catch(e){window.addEventListener('resize',drawLinks)}
+</script>
+
+</body></html>
