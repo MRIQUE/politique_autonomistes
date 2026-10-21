@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Presse satirique</title>
+<meta name="description" content="Hara-Kiri, Charlie Hebdo, L'Enragé, La Gueule ouverte, L'Écho des savanes, Fluide Glacial, Actuel : l'histoire de la presse satirique et de la contre-culture françaises, leurs acteurs et leurs filiations avec les mouvements libertaires.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+:root{--p-sat:#b4441c}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--p-sat:#f08a5d}}
+:root[data-theme="dark"]{--p-sat:#f08a5d}
+.era{display:grid;gap:14px}
+.era-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.era-head .span{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.tl{list-style:none;margin:0 0 0 6px;padding:0;border-left:2px solid var(--p-sat)}
+.tl li{position:relative;padding:10px 0 14px 22px;display:grid;gap:3px}
+.tl li::before{content:"";position:absolute;left:-7px;top:16px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--p-sat)}
+.tl .d{font-family:var(--mono);font-size:12.5px;color:var(--p-sat);font-weight:500}
+.tl b{font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:14px}
+.card{background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--c,var(--p-sat));border-radius:6px;padding:16px 18px;display:grid;gap:8px;align-content:start}
+.card h3{font-size:22px}
+.card .meta{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.card p{font-size:15px}
+.flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.flow .col{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:grid;gap:8px;align-content:start;position:relative}
+.flow .col h3{font-size:19px}
+.flow .col ul{margin:0;padding-left:1.05em;font-size:14.5px}
+.flow .col li{margin:3px 0}
+.flow .col:not(:last-child)::after{content:"→";position:absolute;right:-14px;top:50%;transform:translate(50%,-50%);font-family:var(--mono);font-size:20px;color:var(--p-sat);background:var(--bg);line-height:1;padding:2px 0}
+.flow .center{border:2px solid var(--p-sat)}
+@media (max-width:760px){.flow{grid-template-columns:minmax(0,1fr)}.flow .col:not(:last-child)::after{content:"↓";right:50%;top:auto;bottom:-14px;transform:translate(50%,50%)}}
+.ties{display:grid;gap:10px}
+.tie{display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 16px;background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--c);border-radius:4px;padding:12px 16px}
+.tie .k{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--c);padding-top:2px}
+@media (max-width:560px){.tie{grid-template-columns:minmax(0,1fr)}}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.two .side{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:16px 18px;display:grid;gap:8px;align-content:start}
+.two .side h3{font-size:20px}
+.src{font-size:14px;color:var(--muted);display:grid;gap:4px;padding-left:1.1em;margin:0}
+.src a{word-break:break-word}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="topnav" aria-label="Navigation principale">
+    <a class="brand" href="index.html">Généalogies autonomes</a>
+    <a href="index.html">Accueil</a>
+    <a href="genealogie.html">Frise généalogique</a>
+    <a href="web-independant.html">Web indépendant</a>
+    <a href="presse-satirique.html" aria-current="page">Presse satirique</a>
+    <a href="ouvrages.html">Ouvrages</a>
+  </nav>
+
+  <header style="display:grid;gap:16px">
+    <p class="eyebrow">Contre-culture · 1960 → 2016</p>
+    <h1>La presse satirique</h1>
+    <p class="lede">Hara-Kiri, Charlie Hebdo, L'Enragé, La Gueule ouverte, L'Écho des savanes, Fluide Glacial : pendant un demi-siècle, une poignée de journaux a moqué l'armée, l'Église, l'État et la bienséance. Ce n'était pas un mouvement politique. Mais leur esprit anti-autoritaire a nourri plusieurs générations militantes, et ils ont fait naître l'écologie politique en France.</p>
+  </header>
+
+  <section aria-labelledby="esprit">
+    <h2 id="esprit">L'esprit</h2>
+    <div class="prose">
+      <p>Ces journaux partagent un ton plus qu'une doctrine : l'irrévérence, l'antimilitarisme, l'anticléricalisme, la moquerie du pouvoir et de la morale bourgeoise, la provocation sexuelle et scatologique. On y retrouve, sous forme de dessins, des thèmes de la tradition libertaire, comme la critique de Dieu et de l'État chez Bakounine.</p>
+      <p>Il faut pourtant éviter un raccourci. Les fondateurs de Hara-Kiri ne se disaient pas anarchistes. Cavanna défendait plutôt des valeurs républicaines, et Choron a même écrit pour <i>Minute</i>, un hebdomadaire d'extrême droite. Le lien avec les libertaires tient à l'esprit et à quelques figures, comme Siné, qualifié d'« anarchisant », ou Pierre Fournier, « pacifiste libertaire ». Il ne tient pas à un engagement militant de l'équipe.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="chrono">
+    <h2 id="chrono">Chronologie</h2>
+
+    <div class="era">
+      <div class="era-head"><h3>Le journal « bête et méchant »</h3><span class="span">1960 – 1969</span></div>
+      <ol class="tl">
+        <li><span class="d">Septembre 1960</span><p><b>François Cavanna et Georges Bernier, dit le professeur Choron, fondent Hara-Kiri</b>, un mensuel. Le pseudonyme de Choron vient de la rue Choron, où se trouvaient les premiers locaux. La formule « journal bête et méchant » viendrait d'une lettre de lecteur indigné (1961) ; d'autres sources y voient une auto-désignation du journal.</p></li>
+        <li><span class="d">18 juillet 1961</span><p><b>Première interdiction.</b> Un arrêté du ministre de l'Intérieur, pris sur avis de la commission de surveillance des publications pour la jeunesse, juge le journal « à la limite de la pornographie et du sadisme ». Il est levé en janvier 1962.</p></li>
+        <li><span class="d">Décembre 1962</span><p><b>Siné fonde <i>Siné Massacre</i></b> avec l'éditeur Jean-Jacques Pauvert. En neuf numéros, ce journal anti-gaulliste, anticolonial et anticlérical subit neuf procès.</p></li>
+        <li><span class="d">23 mai 1966</span><p><b>Deuxième interdiction de Hara-Kiri</b>, levée en novembre. Les archives ne donnent aucun motif officiel.</p></li>
+        <li><span class="d">Février 1969</span><p><b>Lancement de <i>Hara-Kiri Hebdo</i></b>, version hebdomadaire et plus politique du mensuel.</p></li>
+      </ol>
+    </div>
+
+    <div class="era">
+      <div class="era-head"><h3>Mai 68, Charlie et la contre-culture</h3><span class="span">1968 – 1981</span></div>
+      <ol class="tl">
+        <li><span class="d">Mai 1968</span><p><b>Siné, Wolinski et Pauvert lancent <i>L'Enragé</i></b>, journal des événements, auquel collaborent aussi Cabu, Reiser, Topor et Willem. Il compte douze numéros et s'arrête en novembre 1968. La même année, Wolinski publie l'album <i>Je ne veux pas mourir idiot</i>.</p></li>
+        <li><span class="d">Octobre 1970</span><p><b>Jean-François Bizot reprend <i>Actuel</i></b>, revue de jazz fondée en 1967 par Claude Delcloo, et en fait le magazine de la contre-culture et de la presse underground.</p></li>
+        <li><span class="d">Novembre 1970</span><p><b>De la mort de De Gaulle à Charlie Hebdo.</b> De Gaulle meurt le 9 novembre. <i>L'Hebdo Hara-Kiri</i> titre « Bal tragique à Colombey : 1 mort ». L'arrêté qui interdit le journal à l'affichage et aux mineurs est daté du 4 novembre, mais il n'est publié qu'après cette une : le lien entre les deux, longtemps raconté, n'est pas démontré. L'équipe relance aussitôt le titre sous le nom de <b>Charlie Hebdo</b>, dont le premier numéro paraît le 23 novembre 1970.</p></li>
+        <li><span class="d">10 juillet 1971</span><p><b>Manifestation contre la centrale du Bugey.</b> Pierre Fournier, chroniqueur de <i>Charlie Hebdo</i>, l'appelle de ses vœux dans le journal. Elle rassemble environ 15 000 personnes : c'est l'un des premiers grands rassemblements antinucléaires en France.</p></li>
+        <li><span class="d">1972</span><p><b>Gotlib, Bretécher et Mandryka fondent <i>L'Écho des savanes</i></b>, d'abord revue « underground » de bande dessinée pour adultes. En novembre, <b>Pierre Fournier lance <i>La Gueule ouverte</i></b>, « le journal qui annonce la fin du monde », l'un des premiers journaux écologistes français. Fournier meurt en février 1973, à 35 ans. Reiser y dessine sur l'écologie et l'énergie solaire.</p></li>
+        <li><span class="d">1er avril 1975</span><p><b>Gotlib et Jacques Diament fondent <i>Fluide Glacial</i></b>, où Édika publie à partir de 1979.</p></li>
+        <li><span class="d">Années 1970</span><p><b>Cabu invente le « beauf »</b> dans <i>Charlie Hebdo</i>. Le personnage prend son nom vers 1973-1975, et l'album <i>Mon beauf'</i> paraît en 1976.</p></li>
+        <li><span class="d">23 décembre 1981</span><p><b>Fin de la première série de <i>Charlie Hebdo</i></b> (numéro 580), faute de lecteurs. Reiser meurt deux ans plus tard, le 5 novembre 1983.</p></li>
+      </ol>
+    </div>
+
+    <div class="era">
+      <div class="era-head"><h3>Le second Charlie, la rupture et le deuil</h3><span class="span">1992 – 2016</span></div>
+      <ol class="tl">
+        <li><span class="d">1992</span><p><b>Relance de <i>Charlie Hebdo</i></b> par Philippe Val, Cabu, Gébé et Renaud, qui apportent le capital. Wolinski propose de reprendre le nom. Cavanna y signe, sans être actionnaire.</p></li>
+        <li><span class="d">Juillet – septembre 2008</span><p><b>L'affaire Siné.</b> Philippe Val licencie Siné après une chronique jugée antisémite. Siné est relaxé en 2009, et <i>Charlie Hebdo</i> est condamné à lui verser des dommages. Il fonde <i>Siné Hebdo</i> (septembre 2008), puis <i>Siné Mensuel</i> (2011).</p></li>
+        <li><span class="d">7 janvier 2015</span><p><b>L'attentat contre <i>Charlie Hebdo</i></b>, revendiqué par Al-Qaïda dans la péninsule arabique, fait douze morts. Parmi eux se trouvent les dessinateurs Cabu, Charb, Honoré, Tignous et Wolinski. Le « numéro des survivants » est tiré à près de huit millions d'exemplaires.</p></li>
+        <li><span class="d">2016</span><p><b>Disparition de Siné</b> (5 mai) et de <b>Gotlib</b> (4 décembre).</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section aria-labelledby="acteurs">
+    <h2 id="acteurs">Les acteurs</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>François Cavanna</h3>
+        <p class="meta">Cofondateur de Hara-Kiri et de Charlie Hebdo</p>
+        <p>Écrivain et rédacteur en chef, il donne aux deux journaux leur ton et leur exigence d'écriture. Il a raconté cette histoire dans ses mémoires, <i>Bête et méchant</i> (1981). Ses positions relèvent d'une gauche critique et républicaine plutôt que de l'anarchisme.</p>
+      </article>
+      <article class="card">
+        <h3>Le professeur Choron</h3>
+        <p class="meta">Georges Bernier · cofondateur et directeur</p>
+        <p>L'homme de la provocation et de l'entreprise : il tient l'administration et invente les fausses publicités et les unes les plus scandaleuses. Il n'a pas de positions politiques connues, et il a même écrit pour <i>Minute</i>, ce qui rappelle que l'irrévérence n'est pas une doctrine.</p>
+      </article>
+      <article class="card">
+        <h3>Siné</h3>
+        <p class="meta">Maurice Sinet · 1928 – 2016</p>
+        <p>Le plus politique de la bande, qualifié d'« anarchisant ». Il est anticolonial pendant la guerre d'Algérie, anticlérical et antimilitariste. Il fonde <i>Siné Massacre</i> (1962), <i>L'Enragé</i> (1968), <i>Siné Hebdo</i> (2008) et <i>Siné Mensuel</i> (2011). Sa tombe porte l'épitaphe « Mourir ? Plutôt crever ! ».</p>
+      </article>
+      <article class="card">
+        <h3>Cabu</h3>
+        <p class="meta">Jean Cabut · 1938 – 2015</p>
+        <p>Vingt-sept mois de service militaire en Algérie forgent son « antimilitarisme farouche », qui lui vaut plusieurs condamnations. Il crée le Grand Duduche dans <i>Pilote</i>, puis le « beauf », caricature du Français raciste et borné. Il est assassiné le 7 janvier 2015.</p>
+      </article>
+      <article class="card">
+        <h3>Wolinski</h3>
+        <p class="meta">Georges Wolinski · 1934 – 2015</p>
+        <p>Cofondateur de <i>L'Enragé</i> en mai 1968, auteur de <i>Je ne veux pas mourir idiot</i>, il incarne la libération des mœurs de l'après-68. Il dirige <i>Charlie Hebdo</i> de 1970 à 1981. Il est assassiné le 7 janvier 2015.</p>
+      </article>
+      <article class="card" style="--c:var(--p-eco)">
+        <h3>Reiser</h3>
+        <p class="meta">Jean-Marc Reiser · 1941 – 1983</p>
+        <p>Dessinateur au trait cru et à l'humour noir (<i>On vit une époque formidable</i>, <i>Gros dégueulasse</i>), il s'intéresse de très près à l'écologie et à l'énergie solaire, et publie dans <i>La Gueule ouverte</i>. Un recueil posthume, <i>Reiser. L'écologie</i>, paraît en 2010.</p>
+      </article>
+      <article class="card" style="--c:var(--p-eco)">
+        <h3>Pierre Fournier</h3>
+        <p class="meta">1937 – 1973 · chroniqueur, fondateur</p>
+        <p>« Pacifiste libertaire », chroniqueur à <i>Hara-Kiri Hebdo</i> puis à <i>Charlie Hebdo</i>, il fait entrer l'écologie dans la presse. Il appelle à la manifestation du Bugey (1971) et fonde <i>La Gueule ouverte</i> (1972). C'est le pont le plus direct entre la presse satirique et les luttes écologistes.</p>
+      </article>
+      <article class="card">
+        <h3>Gotlib</h3>
+        <p class="meta">Marcel Gottlieb · 1934 – 2016</p>
+        <p>Auteur de la <i>Rubrique-à-brac</i> dans <i>Pilote</i> (1968-1974), il cofonde <i>L'Écho des savanes</i> (1972) et <i>Fluide Glacial</i> (1975). Il libère la bande dessinée adulte : absurde, sexe, parodie. Son apport relève de la contre-culture plus que de la politique.</p>
+      </article>
+      <article class="card">
+        <h3>Édika</h3>
+        <p class="meta">Roland Édouard Carali · né en 1940</p>
+        <p>Pilier de <i>Fluide Glacial</i> depuis 1979, avec plus de quatre-vingts couvertures et une trentaine d'albums. Son humour absurde, scatologique et sexuel vient de l'underground américain. Aucune dimension politique n'est documentée : il appartient au paysage de la contre-culture, pas à la généalogie libertaire.</p>
+      </article>
+      <article class="card">
+        <h3>Jean-François Bizot</h3>
+        <p class="meta"><i>Actuel</i> · Radio Nova</p>
+        <p>Il reprend <i>Actuel</i> en 1970 et en fait le journal de la contre-culture : rock, drogues, communautés, mouvements alternatifs, presse underground américaine. Le magazine dépasse les 400 000 exemplaires au début des années 1980.</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="titres">
+    <h2 id="titres">Les titres</h2>
+    <div class="books">
+      <article class="book" style="--c:var(--p-sat)">
+        <header><span class="tag">Depuis 1960</span><h3>Hara-Kiri</h3><p class="meta">Mensuel, puis <i>Hara-Kiri Hebdo</i> (1969)</p></header>
+        <p>Le laboratoire de tout le reste : fausses publicités, photos-montages, unes scandaleuses. Interdit en 1961 et en 1966, il invente un humour qui ne respecte rien et forme la génération de Cabu, Wolinski, Reiser et Gébé.</p>
+      </article>
+      <article class="book" style="--c:var(--p-sat)">
+        <header><span class="tag">1970 – 1981 · 1992 –</span><h3>Charlie Hebdo</h3><p class="meta">Hebdomadaire</p></header>
+        <p>Né d'une interdiction, il porte dans les années 1970 l'antimilitarisme, l'anticléricalisme et l'écologie. Le second Charlie, à partir de 1992, fait de la laïcité l'un de ses combats centraux. C'est ce qui le met en conflit avec une partie de la gauche radicale, avant l'attentat de 2015.</p>
+      </article>
+      <article class="book" style="--c:var(--p-sat)">
+        <header><span class="tag">1968</span><h3>L'Enragé</h3><p class="meta">Douze numéros, mai à novembre 1968</p></header>
+        <p>Le journal dessiné de Mai 68, fondé par Siné, Wolinski et Pauvert : affiches, caricatures du pouvoir gaulliste, soutien aux grévistes. C'est le moment où la presse satirique et la révolte de la rue se rejoignent.</p>
+      </article>
+      <article class="book" style="--c:var(--p-eco)">
+        <header><span class="tag">1972 – 1980</span><h3>La Gueule ouverte</h3><p class="meta">« Le journal qui annonce la fin du monde »</p></header>
+        <p>Fondé par Pierre Fournier, issu de <i>Charlie Hebdo</i>, c'est l'un des premiers journaux écologistes en France. Il accompagne les luttes antinucléaires et la naissance de l'écologie politique.</p>
+      </article>
+      <article class="book" style="--c:var(--p-sat)">
+        <header><span class="tag">1972 · 1975</span><h3>L'Écho des savanes et Fluide Glacial</h3><p class="meta">Bande dessinée adulte</p></header>
+        <p>Deux revues fondées par Gotlib et ses complices pour échapper à la presse pour la jeunesse. Elles installent en France une bande dessinée adulte, libre et souvent obscène, plus contre-culturelle que militante.</p>
+      </article>
+      <article class="book" style="--c:var(--p-sat)">
+        <header><span class="tag">1970 – 1994</span><h3>Actuel</h3><p class="meta">Magazine de la contre-culture</p></header>
+        <p>Sous Bizot, la contre-culture française trouve son magazine : communautés, rock, nouveaux modes de vie, presse underground. C'est le pendant « hippie » de l'esprit Hara-Kiri.</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="genea">
+    <h2 id="genea">Généalogie</h2>
+    <div class="flow">
+      <div class="col">
+        <p class="eyebrow">Sources</p>
+        <h3>Ce dont elle hérite</h3>
+        <ul>
+          <li>La caricature politique du XIX<sup>e</sup> siècle (Daumier, <i>L'Assiette au beurre</i>)</li>
+          <li>L'anticléricalisme et l'antimilitarisme de la tradition libertaire</li>
+          <li>L'humour absurde et noir d'après-guerre</li>
+          <li>L'underground américain (Crumb, les comix)</li>
+        </ul>
+      </div>
+      <div class="col center">
+        <p class="eyebrow">1960 – 1981</p>
+        <h3>La presse satirique</h3>
+        <ul>
+          <li>Hara-Kiri (1960) et <i>Siné Massacre</i> (1962)</li>
+          <li><i>L'Enragé</i> (1968)</li>
+          <li><i>Charlie Hebdo</i> (1970) et <i>Actuel</i> (1970)</li>
+          <li><i>La Gueule ouverte</i>, <i>L'Écho des savanes</i> (1972)</li>
+          <li><i>Fluide Glacial</i> (1975)</li>
+        </ul>
+      </div>
+      <div class="col">
+        <p class="eyebrow">Héritiers</p>
+        <h3>Ce qu'elle transmet</h3>
+        <ul>
+          <li>L'écologie politique et l'antinucléaire (Bugey, <i>La Gueule ouverte</i>)</li>
+          <li>Le goût du détournement dans les affiches et les banderoles militantes</li>
+          <li>La presse satirique indépendante, comme <i>Siné Mensuel</i></li>
+          <li>Un débat durable sur les limites de la satire</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="filiations">
+    <h2 id="filiations">Filiations avec les pôles de la frise</h2>
+    <p class="muted">Repères reportés dans la <a href="genealogie.html">frise</a> : Hara-Kiri, <i>L'Enragé</i>, Charlie Hebdo, le Bugey, <i>La Gueule ouverte</i>, l'attentat de 2015.</p>
+    <div class="ties">
+      <div class="tie" style="--c:var(--p-mom)"><span class="k">Tronc commun</span><p>L'irrévérence envers Dieu, l'armée et l'État prolonge en dessin la critique libertaire. Mai 68 réunit la rue et le dessin dans <i>L'Enragé</i>.</p></div>
+      <div class="tie" style="--c:var(--p-eco)"><span class="k">Écologie radicale</span><p>C'est la filiation la plus forte. Pierre Fournier fait passer l'écologie de <i>Charlie Hebdo</i> à <i>La Gueule ouverte</i>, et appelle au rassemblement du Bugey (1971), qui précède Creys-Malville (1977) et la lutte antinucléaire.</p></div>
+      <div class="tie" style="--c:var(--p-afa)"><span class="k">Antifascisme et antiracisme</span><p>Une filiation devenue fracture. Le « beauf » de Cabu est une caricature du racisme ordinaire. Mais après 2005 et surtout 2015, la laïcité et les caricatures de Mahomet opposent les défenseurs de <i>Charlie</i> à l'antiracisme politique. Voir plus bas.</p></div>
+      <div class="tie" style="--c:var(--p-app)"><span class="k">Appellistes</span><p>Une parenté de style plus que d'idées. Le goût du slogan, du détournement et de la provocation passe du situationnisme et de la presse satirique aux tags et aux banderoles des cortèges de tête.</p></div>
+      <div class="tie" style="--c:var(--p-web)"><span class="k">Web indépendant</span><p>Les webzines des années 1990, comme <i>Le Scarabée</i> ou <i>La Rafale</i>, reprennent l'esprit des fanzines et de la presse satirique : publier sans patron et se moquer des puissants.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="fracture">
+    <h2 id="fracture">La fracture d'après 2015</h2>
+    <p class="muted">L'attentat du 7 janvier 2015 a été condamné par toute la gauche. Mais la manière d'y répondre l'a divisée. Les deux lectures sont présentées ici sans être arbitrées.</p>
+    <div class="two">
+      <div class="side">
+        <h3>« Je suis Charlie »</h3>
+        <p>Pour les défenseurs du journal, la satire des religions, toutes les religions, prolonge l'anticléricalisme de la gauche et la liberté d'expression. Charb rappelait que le journal avait subi bien plus de procès de l'extrême droite catholique que de plaignants musulmans. Céder sur les caricatures reviendrait à céder à l'intimidation.</p>
+      </div>
+      <div class="side">
+        <h3>La critique antiraciste</h3>
+        <p>Pour une partie de la gauche radicale et de l'antiracisme politique, le second Charlie a glissé vers une obsession de l'islam qui vise une minorité dominée. Le journaliste Olivier Cyran parlait dès 2013 de « névrose islamophobe ». Le Parti des Indigènes de la République condamne l'attentat mais refuse la marche du 11 janvier. Emmanuel Todd voit dans ces marches une forme d'« hystérie collective » dans <i>Qui est Charlie ?</i> (2015), un livre très contesté.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="sources">
+    <h2 id="sources">Sources</h2>
+    <ul class="src">
+      <li>Cité internationale de la bande dessinée, <a href="https://www.citebd.org/neuvieme-art/il-etait-une-fois-hara-kiri-journal-bete-et-mechant-et-ses-interdictions" rel="noopener">« Il était une fois Hara-Kiri, journal bête et méchant, et ses interdictions »</a> (étude fondée sur les archives et le Journal officiel).</li>
+      <li>Wikipédia : <a href="https://fr.wikipedia.org/wiki/Hara-Kiri_(journal)" rel="noopener">Hara-Kiri</a>, <a href="https://fr.wikipedia.org/wiki/Charlie_Hebdo" rel="noopener">Charlie Hebdo</a>, <a href="https://fr.wikipedia.org/wiki/Sin%C3%A9_Massacre" rel="noopener">Siné Massacre</a>, <a href="https://fr.wikipedia.org/wiki/Pierre_Fournier_(journaliste)" rel="noopener">Pierre Fournier</a>, <a href="https://fr.wikipedia.org/wiki/Actuel_(magazine)" rel="noopener">Actuel</a>, <a href="https://fr.wikipedia.org/wiki/Attentat_contre_Charlie_Hebdo" rel="noopener">attentat contre Charlie Hebdo</a>.</li>
+      <li>Encyclopædia Universalis, <a href="https://www.universalis.fr/encyclopedie/maurice-sinet-dit-sine/" rel="noopener">Maurice Sinet, dit Siné</a>.</li>
+      <li>Laurent Samuel, <a href="https://laurent-samuel.over-blog.com/article-pierre-fournier-et-les-racines-oubliees-de-l-ecologie-en-france-86362733.html" rel="noopener">« Pierre Fournier et les racines oubliées de l'écologie en France »</a>.</li>
+      <li>Wikipédia, <a href="https://fr.wikipedia.org/wiki/La_Gueule_ouverte" rel="noopener">La Gueule ouverte</a>.</li>
+      <li>Hérodote, <a href="https://www.herodote.net/Sociologie_d_une_crise_religieuse-article-1508.php" rel="noopener">recension de <i>Qui est Charlie ?</i></a> d'Emmanuel Todd.</li>
+    </ul>
+  </section>
+
+  <aside class="note">
+    <strong>Niveau de vérification.</strong> Les faits de cette page ont été vérifiés en ligne en octobre 2026, surtout auprès de sources secondaires et de l'étude de la Cité de la BD. Restent incertains : l'origine exacte de la formule « bête et méchant », la date précise de création du « beauf », et l'absence de source académique de référence sur la fracture d'après 2015. Aucun dessin n'est reproduit sur ce site.
+  </aside>
+
+  <footer>
+    <span>Généalogies autonomes · octobre 2026</span>
+    <span>Site d'histoire des idées, à visée documentaire.</span>
+  </footer>
+
+</div>
+</body>
+</html>

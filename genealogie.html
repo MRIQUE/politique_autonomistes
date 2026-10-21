@@ -91,7 +91,7 @@ tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
 </style>
 
 <div class="wrap">
-  <nav class="eyebrow" aria-label="Navigation du site" style="display:flex;flex-wrap:wrap;gap:6px 20px"><a href="index.html" style="color:inherit">← Accueil</a><a href="web-independant.html" style="color:inherit">Web indépendant</a><a href="ouvrages.html" style="color:inherit">Ouvrages</a></nav>
+  <nav class="eyebrow" aria-label="Navigation du site" style="display:flex;flex-wrap:wrap;gap:6px 20px"><a href="index.html" style="color:inherit">← Accueil</a><a href="web-independant.html" style="color:inherit">Web indépendant</a><a href="presse-satirique.html" style="color:inherit">Presse satirique</a><a href="ouvrages.html" style="color:inherit">Ouvrages</a></nav>
   <header>
     <div class="eyebrow">Gauche radicale non parlementaire · France et Europe · état en octobre 2026</div>
     <h1>Généalogie de l'autonomie</h1>
@@ -152,6 +152,9 @@ const E=[
  // moments
  ['m1871','mom',1871,'Commune de Paris',"Soixante-douze jours d'autogouvernement parisien. Référence mythique de toute la tradition : la « commune » comme forme politique hors de l'État, reprise par les anarchistes, les appellistes et les zadistes."],
  ['m1968','mom',1968,'Mai 68',"Grève générale et révolte étudiante. Matrice de la critique des appareils (PCF, CGT) et de l'idée que le mouvement peut déborder ses organisations."],
+ ['s1960','mom',1960,'Hara-Kiri',"Cavanna et le professeur Choron fondent le journal « bête et méchant » en septembre 1960. Irrévérence, antimilitarisme, anticléricalisme : un esprit libertaire sans doctrine. Interdit en 1961 et 1966."],
+ ['s1968','mom',1968,"L'Enragé","Journal dessiné de Mai 68, fondé par Siné, Wolinski et l'éditeur Pauvert, avec Cabu, Reiser, Topor. Douze numéros, jusqu'en novembre 1968 : la presse satirique rejoint la rue."],
+ ['s1970','mom',1970,'Charlie Hebdo',"Interdit à l'affichage et aux mineurs (arrêté du 4 novembre, publié après la une sur la mort de De Gaulle), L'Hebdo Hara-Kiri renaît sous le nom de Charlie Hebdo le 23 novembre 1970."],
  ['m1977','mom',1977,'Mouvement de 77 en Italie',"Apogée et crise de l'Autonomia italienne : occupations, radios libres, affrontements. La répression qui suit (1979) disperse le courant, dont une partie s'exile en France."],
  ['m1999','mom',1999,'Seattle, sommet de l\'OMC',"Naissance médiatique de l'altermondialisme et du black bloc à l'échelle mondiale."],
  ['m2001','mom',2001,'Gênes, G8',"Mort de Carlo Giuliani, violences policières à l'école Diaz. Mythe fondateur ; le mouvement altermondialiste se sépare de sa frange radicale."],
@@ -174,6 +177,8 @@ const E=[
  ['a2018','app',2018,'Relaxe de Tarnac',"Le procès se conclut par une relaxe quasi générale. L'affaire reste citée comme fiasco judiciaire."],
  // écologie radicale
  ['e1971','eco',1971,'Larzac',"Dix ans de lutte paysanne et militante contre l'extension d'un camp militaire, victorieuse en 1981. Ancêtre direct des ZAD."],
+ ['e1971b','eco',1971,'Bugey',"Le 10 juillet 1971, environ 15 000 personnes manifestent contre la centrale du Bugey, à l'appel notamment de Pierre Fournier, chroniqueur écologiste de Charlie Hebdo. Un des premiers grands rassemblements antinucléaires."],
+ ['e1972','eco',1972,'La Gueule ouverte',"Pierre Fournier, « pacifiste libertaire », fonde en novembre 1972 « le journal qui annonce la fin du monde », l'un des premiers journaux écologistes français. Reiser y dessine sur l'énergie solaire."],
  ['e1977','eco',1977,'Creys-Malville',"Grande manifestation contre le surgénérateur Superphénix ; mort du manifestant Vital Michalon."],
  ['e1980','eco',1980,'Plogoff',"Victoire contre un projet de centrale nucléaire en Bretagne, par une mobilisation locale massive."],
  ['e1982','eco',1982,'Bookchin, The Ecology of Freedom',"Écologie sociale et municipalisme libertaire : la domination de la nature prolonge la domination entre humains."],
@@ -187,6 +192,7 @@ const E=[
  ['f1984','afa',1984,'SCALP',"Section carrément anti-Le Pen : premiers groupes antifascistes radicaux liés à la scène punk et libertaire, face à la montée du FN."],
  ['f2005','afa',2005,'Appel des Indigènes de la République',"Naissance de l'antiracisme politique et décolonial en France ; il influencera la lecture des violences policières et des banlieues."],
  ['f2013','afa',2013,'Mort de Clément Méric',"Militant antifasciste tué lors d'une rixe avec des skinheads à Paris. Événement fondateur pour une génération antifa."],
+ ['f2015','afa',2015,'Attentat contre Charlie Hebdo',"Le 7 janvier 2015, douze morts dont Cabu, Charb, Honoré, Tignous et Wolinski. L'attentat ouvre une fracture durable à gauche : défense de la satire et de la laïcité contre critique antiraciste de l'« islamophobie »."],
  ['f2016','afa',2016,"Mort d'Adama Traoré","Décès après une interpellation ; le comité Vérité et Justice devient le pont entre quartiers populaires et gauche radicale."],
  ['f2007','afa',2007,"Dufresne, Maintien de l'ordre","Enquête de David Dufresne (Hachette, octobre 2007) sur la doctrine française du maintien de l'ordre, nourrie d'entretiens avec les patrons de la police, des émeutes de 2005 au mouvement contre le CPE."],
  ['f2018d','afa',2018,'« Allô Place Beauvau »',"Pendant les Gilets jaunes, David Dufresne recense sur Twitter les blessures causées par les forces de l'ordre, vidéos vérifiées à l'appui : 993 signalements en deux ans. Les violences policières entrent dans le débat public."],
@@ -253,6 +259,7 @@ const L=[
  ['t1811','t1954'],['t1954','t1984'],['t1984','t1999'],['t1984','t2001'],['t2001','t2006'],['t2001','t2017'],
  ['f1984','f2018'],['f2013','f2018'],['f2017','f2018'],['f2018','f2024'],['f2018','f2025'],['f2005','f2016'],['m2005','f2005'],
  ['w1983','w1991l'],['w1983','w2001'],['w1983','w2014'],['w1983','o2007'],['w1991t','w1996'],['w1992','w1998'],['w1992','w2007'],['w1997','w2001'],['w1998','w2000'],
+ ['s1960','s1970'],['s1960','s1968'],['m1968','s1968'],['s1970','e1971b'],['e1971b','e1972'],['e1971b','e1977'],['s1970','f2015'],
  ['a2008','a2012'],['a2012','a2018'],['m2005','f2007'],['f2007','f2018d'],['m2018','f2018d'],['f2018d','f2020'],['w1995','w2010'],['w2010','f2018d'],
  ['m1999','w1999'],['w1999','w2013'],['w2001','w2013'],['w2000','w2004'],['w2007','w2008'],['w2008','w2023']
 ];
