@@ -23,6 +23,7 @@ Téléchargés le 20/10/2026.
 | comite-invisible-2007-l-insurrection-qui-vient.pdf | *L'Insurrection qui vient*, La Fabrique, 2007 (ISBN 9782913372627) | Sous droits |
 | comite-invisible-2014-a-nos-amis.pdf | *À nos amis*, La Fabrique, 2014 | Sous droits |
 | comite-invisible-2017-maintenant.pdf | *Maintenant*, La Fabrique, 2017 (ISBN 9782358720861) | Sous droits |
+| dufresne-2012-tarnac-magasin-general.pdf | David Dufresne, *Tarnac, magasin général*, Calmann-Lévy, 2012 (ISBN 978-2-7021-4212-7) | Sous droits, ajouté le 21/10/2026 |
 
 ## Non publiables (`sources/`, exclu de git)
 
