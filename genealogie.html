@@ -33,16 +33,20 @@ section{display:grid;gap:16px}
 .hint{font-size:13px;color:var(--muted);margin:0}
 
 /* frise */
-.scroller{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:6px}
-.frise{position:relative;min-width:1340px}
-.grid{display:grid;grid-template-columns:118px repeat(8,minmax(0,1fr));position:relative;z-index:1}
-.hcell{font-family:var(--display);font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:.02em;padding:12px 8px 10px;border-bottom:2px solid var(--ink);position:sticky;top:0;background:var(--paper);line-height:1.05}
+.wrap{max-width:none}
+.wrap > :not(section.full), section.full > :not(.scroller){max-width:1240px;margin-inline:auto;width:100%;box-sizing:border-box}
+.scroller{overflow:auto;max-height:calc(100vh - 40px);background:var(--paper);border:1px solid var(--line);border-radius:6px;overscroll-behavior:contain}
+.frise{position:relative;min-width:1180px}
+.grid{display:grid;grid-template-columns:84px repeat(8,minmax(0,1fr));position:relative;z-index:1}
+.hcell{font-family:var(--display);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.02em;padding:10px 7px 8px;border-bottom:2px solid var(--ink);position:sticky;top:0;z-index:3;background:var(--paper);line-height:1.05}
+.hcell:first-child{left:0;z-index:4}
 .hcell small{display:block;font-family:var(--mono);font-weight:400;font-size:10.5px;text-transform:none;letter-spacing:0;color:var(--muted);margin-top:3px}
-.per{font-family:var(--mono);font-size:12px;color:var(--muted);padding:12px 8px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
-.per b{display:block;font-family:var(--display);font-size:22px;color:var(--ink);font-weight:700;line-height:1}
-.cell{border-top:1px solid var(--line);border-left:1px dashed var(--line);padding:10px 7px;display:flex;flex-direction:column;gap:7px;min-width:0}
-.chip{all:unset;box-sizing:border-box;cursor:pointer;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:5px 7px 6px;font-size:12.5px;line-height:1.3;display:grid;gap:1px;position:relative}
-.chip .y{font-family:var(--mono);font-size:11px;display:flex;align-items:center;gap:5px;color:var(--muted)}
+.per{font-family:var(--mono);font-size:11px;color:var(--muted);padding:10px 6px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums;position:sticky;left:0;z-index:2;background:var(--paper);box-shadow:1px 0 0 var(--line)}
+.per b{display:block;font-family:var(--display);font-size:19px;color:var(--ink);font-weight:700;line-height:1}
+.cell{border-top:1px solid var(--line);border-left:1px dashed var(--line);padding:8px 5px;display:flex;flex-direction:column;gap:5px;min-width:0}
+.chip{all:unset;box-sizing:border-box;cursor:pointer;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:3px 6px 4px;font-size:11.5px;line-height:1.25;display:grid;gap:0;position:relative}
+.chip .t{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.chip .y{font-family:var(--mono);font-size:10.5px;display:flex;align-items:center;gap:5px;color:var(--muted)}
 .chip .y i{width:7px;height:7px;border-radius:50%;display:inline-block}
 .chip:hover{border-color:var(--ink)}
 .chip:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
@@ -99,9 +103,9 @@ tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
     <div class="legend" id="legend"></div>
   </header>
 
-  <section aria-labelledby="t-frise">
+  <section class="full" aria-labelledby="t-frise">
     <h2 id="t-frise">La frise</h2>
-    <p class="hint">Les traits relient une source à ce qui en hérite. Sur un écran étroit, faites défiler la frise horizontalement.</p>
+    <p class="hint">Les traits relient une source à ce qui en hérite. Survolez une étiquette pour lire son titre complet, cliquez pour le détail. Sur un écran étroit, la frise défile : la ligne des pôles et la colonne des périodes restent visibles.</p>
     <div class="scroller"><div class="frise" id="frise"><svg class="links" id="links" aria-hidden="true"></svg><div class="grid" id="grid"></div></div></div>
     <div class="detail" id="detail" aria-live="polite"></div>
   </section>
@@ -314,7 +318,7 @@ PER.forEach(([a,b,lab,sub])=>{
   h+=`<div class="per"><b>${lab}</b>${sub}</div>`;
   POLES.forEach(p=>{
     const items=Object.values(by).filter(e=>e.p===p.k&&e.y>=a&&e.y<=b).sort((x,y)=>x.y-y.y);
-    h+=`<div class="cell">${items.map(e=>`<button type="button" class="chip" data-id="${e.id}"><span class="y"><i style="background:${col(e.p)}"></i>${e.y}</span>${e.t}</button>`).join('')}</div>`;
+    h+=`<div class="cell">${items.map(e=>`<button type="button" class="chip" data-id="${e.id}" title="${e.y} · ${e.t.replace(/"/g,'&quot;')}"><span class="y"><i style="background:${col(e.p)}"></i>${e.y}</span><span class="t">${e.t}</span></button>`).join('')}</div>`;
   });
 });
 grid.innerHTML=h;
