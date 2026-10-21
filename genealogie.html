@@ -8,17 +8,17 @@
 /* Layout : frise matricielle — lignes = périodes, colonnes = pôles ; filiations tracées en surimpression ; fiche détail ; cartes des six pôles ; tableau des lignes de fracture */
 :root{
   --bg:#eef0f2; --paper:#ffffff; --ink:#16181c; --muted:#5b616b; --line:#d3d7dd; --soft:#e4e7eb;
-  --p-mom:#3d4450; --p-ins:#b23a2e; --p-ope:#b0700f; --p-app:#6a4c9c; --p-eco:#2f7d4f; --p-tec:#4f6475; --p-afa:#b03a6a;
+  --p-mom:#3d4450; --p-ins:#b23a2e; --p-ope:#b0700f; --p-app:#6a4c9c; --p-eco:#2f7d4f; --p-tec:#4f6475; --p-afa:#b03a6a; --p-web:#1b7489;
   --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
   --body:"Public Sans","Segoe UI",system-ui,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#111316; --paper:#191c21; --ink:#e8eaee; --muted:#9aa1ab; --line:#2d323a; --soft:#22262c;
-  --p-mom:#aab3c0; --p-ins:#e36b5e; --p-ope:#e0a246; --p-app:#a98ae0; --p-eco:#5fbf86; --p-tec:#93aabd; --p-afa:#e47aa5; color-scheme:dark}}
+  --p-mom:#aab3c0; --p-ins:#e36b5e; --p-ope:#e0a246; --p-app:#a98ae0; --p-eco:#5fbf86; --p-tec:#93aabd; --p-afa:#e47aa5; --p-web:#5cc2d6; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#111316; --paper:#191c21; --ink:#e8eaee; --muted:#9aa1ab; --line:#2d323a; --soft:#22262c;
-  --p-mom:#aab3c0; --p-ins:#e36b5e; --p-ope:#e0a246; --p-app:#a98ae0; --p-eco:#5fbf86; --p-tec:#93aabd; --p-afa:#e47aa5; color-scheme:dark}
+  --p-mom:#aab3c0; --p-ins:#e36b5e; --p-ope:#e0a246; --p-app:#a98ae0; --p-eco:#5fbf86; --p-tec:#93aabd; --p-afa:#e47aa5; --p-web:#5cc2d6; color-scheme:dark}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
 .wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px;display:grid;gap:30px}
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
@@ -34,8 +34,8 @@ section{display:grid;gap:16px}
 
 /* frise */
 .scroller{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:6px}
-.frise{position:relative;min-width:1180px}
-.grid{display:grid;grid-template-columns:118px repeat(7,minmax(0,1fr));position:relative;z-index:1}
+.frise{position:relative;min-width:1340px}
+.grid{display:grid;grid-template-columns:118px repeat(8,minmax(0,1fr));position:relative;z-index:1}
 .hcell{font-family:var(--display);font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:.02em;padding:12px 8px 10px;border-bottom:2px solid var(--ink);position:sticky;top:0;background:var(--paper);line-height:1.05}
 .hcell small{display:block;font-family:var(--mono);font-weight:400;font-size:10.5px;text-transform:none;letter-spacing:0;color:var(--muted);margin-top:3px}
 .per{font-family:var(--mono);font-size:12px;color:var(--muted);padding:12px 8px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
@@ -91,10 +91,11 @@ tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
 </style>
 
 <div class="wrap">
+  <nav class="eyebrow" aria-label="Navigation du site" style="display:flex;flex-wrap:wrap;gap:6px 20px"><a href="index.html" style="color:inherit">← Accueil</a><a href="web-independant.html" style="color:inherit">Web indépendant</a><a href="ouvrages.html" style="color:inherit">Ouvrages</a></nav>
   <header>
     <div class="eyebrow">Gauche radicale non parlementaire · France et Europe · état en octobre 2026</div>
     <h1>Généalogie de l'autonomie</h1>
-    <p class="lede">Six pôles de pensée irriguent aujourd'hui les mouvances autonomes, le black bloc, les ZAD et l'écologie radicale. Chacun a sa propre lignée intellectuelle, et ils se croisent dans la rue. La frise montre les moments clés et les héritages ; cliquez sur une étiquette pour voir d'où elle vient et ce qu'elle a transmis.</p>
+    <p class="lede">Six pôles de pensée irriguent aujourd'hui les mouvances autonomes, le black bloc, les ZAD et l'écologie radicale. Chacun a sa propre lignée intellectuelle, et ils se croisent dans la rue. Un septième fil, transversal, l'Internet libre, leur a fourni une partie de leurs outils et de leurs combats. La frise montre les moments clés et les héritages ; cliquez sur une étiquette pour voir d'où elle vient et ce qu'elle a transmis.</p>
     <div class="legend" id="legend"></div>
   </header>
 
@@ -106,7 +107,7 @@ tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
   </section>
 
   <section aria-labelledby="t-poles">
-    <h2 id="t-poles">Les six pôles en 2026</h2>
+    <h2 id="t-poles">Les pôles en 2026</h2>
     <p class="hint">La jauge « poids en 2026 » est une appréciation qualitative de l'influence actuelle sur les mobilisations, pas une mesure.</p>
     <div class="poles" id="poles"></div>
   </section>
@@ -114,13 +115,13 @@ tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
   <section aria-labelledby="t-frac">
     <h2 id="t-frac">Les lignes de fracture</h2>
     <div class="tbl"><table>
-      <thead><tr><th>Question</th><th>Appellistes</th><th>Écologie radicale</th><th>Antifascisme</th><th>Insurrectionnalistes</th><th>Post-opéraïstes</th><th>Technocritiques</th></tr></thead>
+      <thead><tr><th>Question</th><th>Appellistes</th><th>Écologie radicale</th><th>Antifascisme</th><th>Insurrectionnalistes</th><th>Post-opéraïstes</th><th>Technocritiques</th><th>Internet libre</th></tr></thead>
       <tbody>
-        <tr><th>Rapport à l'État</th><td>Destituer, jamais prendre</td><td>Pression et désobéissance, recours au juge</td><td>Autodéfense, pont avec des élus</td><td>Attaquer</td><td>Conquérir des droits</td><td>Critique de l'État technicien</td></tr>
-        <tr><th>Revendiquer ?</th><td>Non</td><td>Oui (moratoires, partage de l'eau)</td><td>Oui (dissolutions, police)</td><td>Non</td><td>Oui (revenu garanti)</td><td>Rarement</td></tr>
-        <tr><th>Technologie</th><td>Bloquer les infrastructures</td><td>Méfiance, sobriété</td><td>Peu thématisée</td><td>Cible ponctuelle</td><td>Émancipatrice (savoir en réseau)</td><td>L'ennemi principal</td></tr>
-        <tr><th>Violence</th><td>Question de « puissance »</td><td>« Désarmement » des installations</td><td>Autodéfense revendiquée</td><td>Action directe assumée</td><td>Secondaire</td><td>Refus (écriture, enquête)</td></tr>
-        <tr><th>Sujet politique</th><td>Communes, « amis »</td><td>Habitants, paysans, vivants</td><td>Minorités ciblées, quartiers</td><td>Individus révoltés</td><td>Multitude, précaires</td><td>Humains face à la machine</td></tr>
+        <tr><th>Rapport à l'État</th><td>Destituer, jamais prendre</td><td>Pression et désobéissance, recours au juge</td><td>Autodéfense, pont avec des élus</td><td>Attaquer</td><td>Conquérir des droits</td><td>Critique de l'État technicien</td><td>Défendre les libertés par le droit et le plaidoyer</td></tr>
+        <tr><th>Revendiquer ?</th><td>Non</td><td>Oui (moratoires, partage de l'eau)</td><td>Oui (dissolutions, police)</td><td>Non</td><td>Oui (revenu garanti)</td><td>Rarement</td><td>Oui (neutralité du Net, vie privée)</td></tr>
+        <tr><th>Technologie</th><td>Bloquer les infrastructures</td><td>Méfiance, sobriété</td><td>Peu thématisée</td><td>Cible ponctuelle</td><td>Émancipatrice (savoir en réseau)</td><td>L'ennemi principal</td><td>Émancipatrice si elle est libre</td></tr>
+        <tr><th>Violence</th><td>Question de « puissance »</td><td>« Désarmement » des installations</td><td>Autodéfense revendiquée</td><td>Action directe assumée</td><td>Secondaire</td><td>Refus (écriture, enquête)</td><td>Non : le code, le droit, le plaidoyer</td></tr>
+        <tr><th>Sujet politique</th><td>Communes, « amis »</td><td>Habitants, paysans, vivants</td><td>Minorités ciblées, quartiers</td><td>Individus révoltés</td><td>Multitude, précaires</td><td>Humains face à la machine</td><td>Usagers, communautés du libre</td></tr>
       </tbody>
     </table></div>
   </section>
@@ -136,7 +137,8 @@ const POLES=[
  {k:'afa',n:'Antifascisme',s:'autodéfense, antiracisme'},
  {k:'ins',n:'Insurrectionnalistes',s:'action directe, black bloc'},
  {k:'ope',n:'Post-opéraïstes',s:'autonomie, multitude'},
- {k:'tec',n:'Technocritiques',s:'anti-industriels'}
+ {k:'tec',n:'Technocritiques',s:'anti-industriels'},
+ {k:'web',n:'Internet libre',s:'communs numériques, web indépendant'}
 ];
 const PER=[[0,1959,'Racines','1811–1959'],[1960,1969,'1960','années 60'],[1970,1979,'1970','années 70'],[1980,1989,'1980','années 80'],[1990,1999,'1990','années 90'],[2000,2009,'2000','années 2000'],[2010,2019,'2010','années 2010'],[2020,2026,'2020','2020–2026']];
 const E=[
@@ -216,7 +218,24 @@ const E=[
  ['t1999','tec',1999,"Destructions d'OGM","Avec la Confédération paysanne, René Riesel participe à la destruction de cultures transgéniques."],
  ['t2001','tec',2001,'Pièces et main d\'œuvre',"Collectif d'enquête grenoblois apparu au début des années 2000 : nanotechnologies, contrôle numérique, « société de contrainte »."],
  ['t2006','tec',2006,'Contre Minatec',"Mobilisation contre l'inauguration du pôle grenoblois de micro et nanotechnologies."],
- ['t2017','tec',2017,'Manifeste des chimpanzés du futur',"Critique du transhumanisme. Les positions de PMO sur la reproduction et le genre les isolent d'une partie de l'extrême gauche."]
+ ['t2017','tec',2017,'Manifeste des chimpanzés du futur',"Critique du transhumanisme. Les positions de PMO sur la reproduction et le genre les isolent d'une partie de l'extrême gauche."],
+ // internet libre et web indépendant
+ ['w1983','web',1983,'Stallman annonce GNU',"Le 27 septembre 1983, Richard Stallman annonce un système d'exploitation entièrement libre. Suivent la Free Software Foundation (1985) et la licence GPL (1989) : le logiciel devient un bien commun que chacun peut étudier, modifier et partager."],
+ ['w1991t','web',1991,'Hakim Bey, TAZ',"La « zone autonome temporaire » : des espaces de liberté éphémères, qui se dissolvent avant d'être captés par l'État. Le texte nourrit à la fois la cyberculture libertaire et l'imaginaire des squats et des occupations."],
+ ['w1991l','web',1991,'Linux',"Linus Torvalds annonce son noyau le 25 août 1991 et le place sous GPL début 1992. Avec GNU, il prouve qu'une coopération ouverte à l'échelle mondiale peut produire un système complet."],
+ ['w1992','web',1992,'FDN et Altern',"French Data Network, association fournisseur d'accès, et Altern.org, hébergeur gratuit de Valentin Lacambre, naissent la même année. L'idée : un Internet tenu par ses usagers, pas par des opérateurs commerciaux."],
+ ['w1996','web',1996,"Barlow, Déclaration d'indépendance du cyberespace","Publiée le 8 février 1996 depuis Davos : « Gouvernements du monde industriel… vous n'êtes pas les bienvenus parmi nous. » Manifeste du cyberlibertarianisme, cofondateur de l'EFF (1990)."],
+ ['w1997','web',1997,'Manifeste du Web indépendant',"Texte fondateur du minirézo, collectif de webmestres français, daté du 2 février 1997 : défendre les sites personnels et associatifs, ouverts et gratuits, contre la publicité et la concentration des médias. Son webzine, uZine, en devient la tribune."],
+ ['w1998','web',1998,'Affaire Altern',"Des photos d'Estelle Hallyday publiées par un utilisateur valent à l'hébergeur une condamnation en référé (juin 1998), confirmée en appel (février 1999). Rendre l'hébergeur responsable de tout ce qu'il héberge menace tout le Web indépendant."],
+ ['w1999','web',1999,'Indymedia',"Né le 24 novembre 1999 pour couvrir le contre-sommet de Seattle. Principe de la « publication ouverte » : chacun publie sans contrôle éditorial préalable. Le modèle essaime dans le monde, dont plusieurs villes françaises."],
+ ['w2000','web',2000,'Loi sur les hébergeurs ; fin d\'Altern',"Loi du 1er août 2000 sur la responsabilité des hébergeurs, partiellement censurée par le Conseil constitutionnel. Altern ferme en juillet 2000 avec plus de 20 000 sites : Lacambre refuse de jouer le juge et le censeur."],
+ ['w2001','web',2001,'SPIP 1.0',"Système de publication né d'un projet de Pierre Lazuly (1998) et développé pour uZine 2 par ARNO*, Antoine Pitrou et Fil. Version 1.0 le 1er juillet 2001, sous GPL. Le Monde diplomatique l'adopte ; il équipera des milliers de sites associatifs et militants."],
+ ['w2004','web',2004,'LCEN',"La loi pour la confiance dans l'économie numérique (21 juin 2004) fixe le régime des hébergeurs : responsables seulement s'ils ne retirent pas un contenu manifestement illicite qui leur est signalé."],
+ ['w2007','web',2007,'Bayart, « Minitel 2.0 »',"Conférence de Benjamin Bayart, président de FDN, aux Rencontres mondiales du logiciel libre : l'Internet se recentralise autour de grands services et redevient un Minitel. Transcription sous licence libre."],
+ ['w2008','web',2008,'La Quadrature du Net',"Collectif fondé en mars 2008 contre la loi Hadopi (Zimmermann, Aigrain, Espern, Sédrati-Dinet, Sonntag), devenu association en 2013. Défense de la neutralité du Net, de la vie privée, puis lutte contre la surveillance policière."],
+ ['w2013','web',2013,'Réseau Mutu',"Réseau de médias libres locaux (Rebellyon, Paris-luttes.info…), héritiers de la publication ouverte d'Indymedia avec une modération transparente. Infrastructure de publication de la mouvance autonome."],
+ ['w2014','web',2014,'« Dégooglisons Internet »',"Campagne de Framasoft (réseau créé en 2001) lancée en octobre 2014 : proposer des alternatives libres aux services des géants du Web."],
+ ['w2023','web',2023,'Vidéosurveillance algorithmique',"La loi sur les Jeux olympiques autorise l'expérimentation de la vidéosurveillance algorithmique. La Quadrature du Net en fait un front majeur : la défense des libertés numériques rejoint la critique de la surveillance portée par les technocritiques."]
 ];
 const L=[
  ['p1840','b1872'],['p1840','m1871'],['b1872','i1880'],['b1872','k1902'],['m1871','l1883'],['l1883','i1981'],['k1902','e1982'],['y1893','e1971'],
@@ -226,7 +245,9 @@ const L=[
  ['i1880','i1977'],['i1977','i1981'],['i1981','m1999'],['m1999','m2001'],['m2001','i2008'],['i1981','i2018'],['m2016','i2018'],
  ['e1971','e2009'],['e1982','e2009'],['e2009','e2018'],['e2018','e2021'],['e2017','e2021'],['e2021','e2023'],['t1973','e2021'],['e1977','e1980'],
  ['t1811','t1954'],['t1954','t1984'],['t1984','t1999'],['t1984','t2001'],['t2001','t2006'],['t2001','t2017'],
- ['f1984','f2018'],['f2013','f2018'],['f2017','f2018'],['f2018','f2024'],['f2018','f2025'],['f2005','f2016'],['m2005','f2005']
+ ['f1984','f2018'],['f2013','f2018'],['f2017','f2018'],['f2018','f2024'],['f2018','f2025'],['f2005','f2016'],['m2005','f2005'],
+ ['w1983','w1991l'],['w1983','w2001'],['w1983','w2014'],['w1983','o2007'],['w1991t','w1996'],['w1992','w1998'],['w1992','w2007'],['w1997','w2001'],['w1998','w2000'],
+ ['m1999','w1999'],['w1999','w2013'],['w2001','w2013'],['w2000','w2004'],['w2007','w2008'],['w2008','w2023']
 ];
 const POLE_CARDS=[
  {k:'app',n:'Appellistes ou destituants',w:8,
@@ -258,7 +279,12 @@ const POLE_CARDS=[
   core:"La technique et l'industrie sont la forme principale de la domination ; critique du numérique, de la surveillance et du transhumanisme.",
   chain:"Luddites → Ellul, Charbonneau, Illich → Encyclopédie des Nuisances → Pièces et main d'œuvre",
   who:"Pièces et main d'œuvre (Grenoble), éditions L'Échappée ; contrepoint réformiste : Bernard Stiegler",
-  now:"Isolés politiquement, mais leurs thèmes montent : IA, data centers, consommation d'eau de l'industrie, smart city."}
+  now:"Isolés politiquement, mais leurs thèmes montent : IA, data centers, consommation d'eau de l'industrie, smart city."},
+ {k:'web',n:'Internet libre et web indépendant',w:4,
+  core:"Le réseau comme bien commun : publier sans intermédiaire, héberger soi-même, partager le code, défendre la neutralité du Net et la vie privée contre la marchandisation et la surveillance.",
+  chain:"GNU, logiciel libre → TAZ, Barlow → minirézo, uZine, Altern → Indymedia, SPIP → La Quadrature du Net, Framasoft → médias libres (réseau Mutu)",
+  who:"La Quadrature du Net, Framasoft, FDN ; réseau Mutu ; héritage du minirézo (SPIP, rezo.net)",
+  now:"Fil transversal plutôt que pôle de rue : il fournit les outils de publication des médias militants et un front contre la surveillance (vidéosurveillance algorithmique, IA) qui rejoint la technocritique."}
 ];
 const by=Object.fromEntries(E.map(e=>[e[0],{id:e[0],p:e[1],y:e[2],t:e[3],d:e[4]}]));
 const pname=k=>POLES.find(p=>p.k===k).n;

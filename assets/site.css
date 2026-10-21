@@ -1,7 +1,7 @@
 /* Tokens repris de « Généalogie de l'autonomie.html » pour une identité commune */
 :root{
   --bg:#eef0f2; --paper:#ffffff; --ink:#16181c; --muted:#5b616b; --line:#d3d7dd; --soft:#e4e7eb;
-  --p-mom:#3d4450; --p-ins:#b23a2e; --p-ope:#b0700f; --p-app:#6a4c9c; --p-eco:#2f7d4f; --p-tec:#4f6475; --p-afa:#b03a6a;
+  --p-mom:#3d4450; --p-ins:#b23a2e; --p-ope:#b0700f; --p-app:#6a4c9c; --p-eco:#2f7d4f; --p-tec:#4f6475; --p-afa:#b03a6a; --p-web:#1b7489;
   --warn:#9a5b00; --warn-bg:#fff4e0;
   --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
   --body:"Public Sans","Segoe UI",system-ui,sans-serif;
@@ -10,11 +10,11 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#111316; --paper:#191c21; --ink:#e8eaee; --muted:#9aa1ab; --line:#2d323a; --soft:#22262c;
-  --p-mom:#aab3c0; --p-ins:#e36b5e; --p-ope:#e0a246; --p-app:#a98ae0; --p-eco:#5fbf86; --p-tec:#93aabd; --p-afa:#e47aa5;
+  --p-mom:#aab3c0; --p-ins:#e36b5e; --p-ope:#e0a246; --p-app:#a98ae0; --p-eco:#5fbf86; --p-tec:#93aabd; --p-afa:#e47aa5; --p-web:#5cc2d6;
   --warn:#f0b75a; --warn-bg:#2a2112; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#111316; --paper:#191c21; --ink:#e8eaee; --muted:#9aa1ab; --line:#2d323a; --soft:#22262c;
-  --p-mom:#aab3c0; --p-ins:#e36b5e; --p-ope:#e0a246; --p-app:#a98ae0; --p-eco:#5fbf86; --p-tec:#93aabd; --p-afa:#e47aa5;
+  --p-mom:#aab3c0; --p-ins:#e36b5e; --p-ope:#e0a246; --p-app:#a98ae0; --p-eco:#5fbf86; --p-tec:#93aabd; --p-afa:#e47aa5; --p-web:#5cc2d6;
   --warn:#f0b75a; --warn-bg:#2a2112; color-scheme:dark}
 
 *{box-sizing:border-box}

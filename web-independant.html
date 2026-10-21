@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Le Web indépendant</title>
+<meta name="description" content="Histoire du Web indépendant français et de l'Internet libre : minirézo, uZine, Altern, SPIP, Indymedia, La Quadrature du Net. Acteurs, réalisations, généalogie et filiations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+/* chronologie */
+.era{display:grid;gap:14px}
+.era-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.era-head .span{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.tl{list-style:none;margin:0;padding:0;display:grid;gap:0;border-left:2px solid var(--p-web);margin-left:6px}
+.tl li{position:relative;padding:10px 0 14px 22px;display:grid;grid-template-columns:minmax(0,1fr);gap:3px}
+.tl li::before{content:"";position:absolute;left:-7px;top:16px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--p-web)}
+.tl .d{font-family:var(--mono);font-size:12.5px;color:var(--p-web);font-weight:500}
+.tl b{font-weight:600}
+.tl p{color:var(--ink)}
+/* acteurs */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.card{background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--c,var(--p-web));border-radius:6px;padding:16px 18px;display:grid;gap:8px;align-content:start}
+.card h3{font-size:22px}
+.card .meta{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.card p{font-size:15px}
+/* généalogie */
+.flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:stretch}
+.flow .col{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:grid;gap:8px;align-content:start;position:relative}
+.flow .col h3{font-size:19px}
+.flow .col ul{margin:0;padding-left:1.05em;font-size:14.5px}
+.flow .col li{margin:3px 0}
+.flow .col:not(:last-child)::after{content:"→";position:absolute;right:-14px;top:50%;transform:translate(50%,-50%);font-family:var(--mono);font-size:20px;color:var(--p-web);background:var(--bg);line-height:1;padding:2px 0}
+.flow .center{border:2px solid var(--p-web)}
+@media (max-width:760px){.flow{grid-template-columns:minmax(0,1fr)}.flow .col:not(:last-child)::after{content:"↓";right:50%;top:auto;bottom:-14px;transform:translate(50%,50%)}}
+.ties{display:grid;gap:10px}
+.tie{display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 16px;background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--c);border-radius:4px;padding:12px 16px}
+.tie .k{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--c);padding-top:2px}
+@media (max-width:560px){.tie{grid-template-columns:minmax(0,1fr)}}
+.src{font-size:14px;color:var(--muted);display:grid;gap:4px;padding-left:1.1em;margin:0}
+.src a{word-break:break-word}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="topnav" aria-label="Navigation principale">
+    <a class="brand" href="index.html">Généalogies autonomes</a>
+    <a href="index.html">Accueil</a>
+    <a href="genealogie.html">Frise généalogique</a>
+    <a href="web-independant.html" aria-current="page">Web indépendant</a>
+    <a href="ouvrages.html">Ouvrages</a>
+  </nav>
+
+  <header style="display:grid;gap:16px">
+    <p class="eyebrow">Internet libre · 1983 → 2026</p>
+    <h1>Le Web indépendant</h1>
+    <p class="lede">Avant les plateformes, une poignée de webmestres, d'hébergeurs associatifs et de développeurs a défendu un Web fait par ses usagers. Leur histoire croise celle des mouvements autonomes : ils leur ont fourni des outils de publication, un principe (publier sans intermédiaire) et un combat (les libertés contre la surveillance).</p>
+  </header>
+
+  <section aria-labelledby="idee">
+    <h2 id="idee">L'idée</h2>
+    <div class="prose">
+      <p>Au milieu des années 1990, le Web s'ouvre au grand public. Pour quelques pionniers français, c'est une occasion rare : chacun peut publier, sans éditeur, sans imprimeur, sans autorisation. Ils craignent aussitôt deux menaces. La première est la marchandisation, avec les portails commerciaux, la publicité et la concentration des médias. La seconde est la mise sous contrôle, avec des lois qui rendraient les intermédiaires responsables de tout ce qu'ils transmettent.</p>
+      <p>Le « Web indépendant » désigne la réponse qu'ils construisent : des sites personnels et associatifs, des hébergeurs gratuits ou coopératifs, des logiciels libres pour publier, et des textes pour défendre le tout. Ce n'est pas un mouvement autonome au sens politique. C'est plutôt une gauche critique et artisanale, qui partage avec l'autonomie le refus des intermédiaires et le goût de l'auto-organisation.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="chrono">
+    <h2 id="chrono">Chronologie</h2>
+
+    <div class="era">
+      <div class="era-head"><h3>Les fondations du libre</h3><span class="span">1983 – 1996</span></div>
+      <ol class="tl">
+        <li><span class="d">27 septembre 1983</span><p><b>Richard Stallman annonce le projet GNU</b>, un système d'exploitation entièrement libre. La Free Software Foundation suit en 1985, la licence GPL en 1989. Un logiciel libre peut être étudié, modifié et redistribué par tous, et ses versions dérivées doivent rester libres.</p></li>
+        <li><span class="d">1990</span><p><b>Création de l'Electronic Frontier Foundation</b> aux États-Unis, par John Gilmore, John Perry Barlow et Mitch Kapor, pour défendre les libertés civiles en ligne.</p></li>
+        <li><span class="d">1991</span><p><b>Linus Torvalds annonce Linux</b> (25 août), placé sous GPL début 1992. La même année, <b>Hakim Bey publie <i>TAZ</i></b>, la « zone autonome temporaire », lue à la fois par la cyberculture et par les milieux squat.</p></li>
+        <li><span class="d">1992</span><p><b>French Data Network (FDN)</b>, association qui fournit l'accès à Internet, et <b>Altern.org</b>, hébergeur gratuit fondé par Valentin Lacambre, voient le jour. L'accès et l'hébergement peuvent être tenus par des associations et des individus.</p></li>
+        <li><span class="d">8 février 1996</span><p><b>John Perry Barlow publie la <i>Déclaration d'indépendance du cyberespace</i></b> depuis le forum de Davos. Le cyberespace y est présenté comme un territoire que les gouvernements n'ont pas à régir.</p></li>
+      </ol>
+    </div>
+
+    <div class="era">
+      <div class="era-head"><h3>Le Web indépendant français</h3><span class="span">1996 – 2001</span></div>
+      <ol class="tl">
+        <li><span class="d">10 février 1996</span><p><b>ARNO* lance le webzine <i>Le Scarabée</i></b>. D'autres webzines indépendants apparaissent à la même époque, comme <i>LeS oUrS</i> ou <i>La Rafale</i>.</p></li>
+        <li><span class="d">2 février 1997</span><p><b>Le minirézo publie le <i>Manifeste du Web indépendant</i></b>, son texte fondateur. Ce collectif informel de webmestres défend les sites personnels et associatifs, ouverts et gratuits, contre la publicité et la concentration des médias. Le texte est traduit en anglais, espagnol, italien, allemand et portugais.</p></li>
+        <li><span class="d">9 juin 1998</span><p><b>L'affaire Altern.</b> Des photos d'Estelle Hallyday, mises en ligne par un utilisateur, valent à Valentin Lacambre une condamnation en référé. Elle est confirmée par la cour d'appel de Paris le 10 février 1999. Si l'hébergeur répond de tout ce qu'il héberge, aucun hébergeur gratuit ne peut survivre.</p></li>
+        <li><span class="d">24 novembre 1999</span><p><b>Naissance d'Indymedia</b> à Seattle, pour couvrir le contre-sommet de l'OMC, celui-là même où le black bloc s'impose. Son principe est la <i>publication ouverte</i> : chacun publie sans contrôle éditorial préalable.</p></li>
+        <li><span class="d">1999</span><p><b>Lancement de rezo.net</b>, portail de liens et de veille animé par Pierre Lazuly et des webmestres proches du minirézo.</p></li>
+        <li><span class="d">Juillet – août 2000</span><p><b>Altern ferme</b> début juillet, avec plus de 20 000 sites : Lacambre refuse d'être le juge et le censeur de ses utilisateurs. La <b>loi du 1er août 2000</b> fixe un premier régime de responsabilité des hébergeurs. Le Conseil constitutionnel en a censuré une partie le 27 juillet.</p></li>
+        <li><span class="d">Septembre 2000</span><p><b>uZine 2</b>, le webzine du minirézo, passe à un outil de publication dynamique conçu par le collectif.</p></li>
+        <li><span class="d">Février 2001</span><p><b>Création de Gitoyen</b>, regroupement d'opérateurs associatifs et militants, dont FDN, Globenet et Gandi.</p></li>
+        <li><span class="d">1er juillet 2001</span><p><b>SPIP 1.0</b> est publié sous licence GPL. Ce système de publication est issu d'un projet de Pierre Lazuly (1998), développé par ARNO*, Antoine Pitrou et Fil. Il équipe uZine, <i>Le Monde diplomatique</i> et la revue <i>Vacarme</i>, puis des milliers de sites associatifs.</p></li>
+      </ol>
+    </div>
+
+    <div class="era">
+      <div class="era-head"><h3>Du Web indépendant aux libertés numériques</h3><span class="span">2001 – 2026</span></div>
+      <ol class="tl">
+        <li><span class="d">2001 – 2002</span><p><b>Les communs s'organisent.</b> Wikipédia est lancée en janvier 2001, la version française en mai. Le réseau Framasoft naît en novembre 2001. Creative Commons publie ses premières licences en décembre 2002.</p></li>
+        <li><span class="d">2002 – 2003</span><p><b>Indymedia en France.</b> Après la fermeture d'Indymedia France en 2001, des collectifs locaux prennent le relais, comme Indymedia Paris (2002) ou Indymedia Nantes (en ligne en 2003).</p></li>
+        <li><span class="d">21 juin 2004</span><p><b>La LCEN</b> (loi pour la confiance dans l'économie numérique) stabilise le régime des hébergeurs. Ils ne sont responsables que s'ils ne retirent pas un contenu manifestement illicite qui leur a été signalé.</p></li>
+        <li><span class="d">13 juillet 2007</span><p><b>Benjamin Bayart, président de FDN, prononce « Internet libre ou Minitel 2.0 »</b> aux Rencontres mondiales du logiciel libre à Amiens. L'Internet, dit-il, se recentralise autour de quelques services et redevient un Minitel.</p></li>
+        <li><span class="d">Mars 2008</span><p><b>Fondation de La Quadrature du Net</b> contre le projet de loi Hadopi, par Christophe Espern, Jérémie Zimmermann, Philippe Aigrain, Gérald Sédrati-Dinet et Benjamin Sonntag. L'association est déclarée en 2013, avec notamment Benjamin Bayart et Laurent Chemla.</p></li>
+        <li><span class="d">2013</span><p><b>Création du réseau Mutu</b> des médias libres locaux, avec Rebellyon (actif depuis le milieu des années 2000) et Paris-luttes.info. Il reprend la publication ouverte, avec une modération transparente. Son portail fonctionne sous SPIP.</p></li>
+        <li><span class="d">Octobre 2014</span><p><b>Framasoft lance « Dégooglisons Internet »</b>, campagne de trois ans qui propose des alternatives libres aux services des géants du Web.</p></li>
+        <li><span class="d">2023 – 2026</span><p><b>La surveillance au centre.</b> La loi sur les Jeux olympiques autorise l'expérimentation de la vidéosurveillance algorithmique. La défense des libertés numériques rejoint alors la critique de la surveillance portée par les technocritiques.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section aria-labelledby="acteurs">
+    <h2 id="acteurs">Les acteurs</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Le minirézo</h3>
+        <p class="meta">Collectif informel · à partir de 1996-1997</p>
+        <p>« Collectif informel d'acteurs du Web indépendant », né de quelques webmestres rejoints par des compétences techniques, juridiques et associatives. Ses textes sont signés de leurs auteurs, souvent sous pseudonyme. Auteur du <i>Manifeste du Web indépendant</i>, éditeur d'uZine, à l'origine de SPIP.</p>
+      </article>
+      <article class="card">
+        <h3>uZine</h3>
+        <p class="meta">Webzine du minirézo · archives 1996 – 2009</p>
+        <p>La tribune du Web indépendant : Web citoyen, économie du numérique, journalisme en ligne, répression d'Internet, droit d'auteur. Le site est toujours en ligne avec plus de 1 300 articles et 22 000 messages de forum.</p>
+      </article>
+      <article class="card">
+        <h3>ARNO*, Fil, Antoine Pitrou</h3>
+        <p class="meta">Développeurs de SPIP</p>
+        <p>Arnaud Martin (ARNO*), fondateur du <i>Scarabée</i>, et Philippe Rivière (Fil), journaliste et webmestre du <i>Monde diplomatique</i>, forment avec Antoine Pitrou le noyau qui développe SPIP pour uZine 2.</p>
+      </article>
+      <article class="card">
+        <h3>Pierre Lazuly</h3>
+        <p class="meta">Webmestre · rezo.net, premier SPIP</p>
+        <p>À l'origine du premier code de SPIP en 1998, dont il trouve le nom, et du portail rezo.net en 1999, présenté comme « le portail des copains ».</p>
+      </article>
+      <article class="card">
+        <h3>Valentin Lacambre</h3>
+        <p class="meta">Altern.org · cofondateur de Gandi</p>
+        <p>Fondateur d'Altern.org, hébergeur gratuit de dizaines de milliers de sites, et figure de l'affaire qui pose en France la question de la responsabilité des hébergeurs. Il cofonde le registraire Gandi avec Laurent Chemla.</p>
+      </article>
+      <article class="card">
+        <h3>FDN et Benjamin Bayart</h3>
+        <p class="meta">Association fondée en 1992</p>
+        <p>Fournisseur d'accès associatif, souvent présenté comme le plus ancien encore actif en France, et membre fondateur de Gitoyen. Benjamin Bayart, président de 1997 à 2013, popularise l'idée de neutralité du Net et la critique du « Minitel 2.0 ».</p>
+      </article>
+      <article class="card">
+        <h3>La Quadrature du Net</h3>
+        <p class="meta">Collectif en 2008 · association en 2013</p>
+        <p>Née contre Hadopi, elle défend la neutralité du Net, la vie privée et le droit au chiffrement, puis s'oppose à la « Technopolice » et à la vidéosurveillance algorithmique. C'est l'héritière politique du Web indépendant.</p>
+      </article>
+      <article class="card">
+        <h3>Framasoft</h3>
+        <p class="meta">Réseau créé en 2001</p>
+        <p>D'un annuaire de logiciels libres pour l'éducation à l'éducation populaire au numérique. Avec « Dégooglisons Internet » (2014), il fournit aux associations et collectifs des services alternatifs aux géants du Web.</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="realisations">
+    <h2 id="realisations">Les réalisations</h2>
+    <div class="books">
+      <article class="book" style="--c:var(--p-web)">
+        <header><span class="tag">Logiciel</span><h3>SPIP</h3><p class="meta">2001 · licence GPL</p></header>
+        <p>« Système de publication pour l'Internet » : le dernier P est laissé à l'interprétation de chacun (partagé, participatif…). Son but est de permettre à des non-informaticiens de publier un site collectif, avec des rédacteurs, une relecture et des forums. C'est la réalisation la plus durable du minirézo. Il équipe encore de nombreux sites associatifs, syndicaux, culturels et militants, dont le portail du réseau Mutu.</p>
+      </article>
+      <article class="book" style="--c:var(--p-web)">
+        <header><span class="tag">Infrastructure</span><h3>Hébergeurs et fournisseurs associatifs</h3><p class="meta">Altern, FDN, Gitoyen, puis L'Autre Net, Ouvaton…</p></header>
+        <p>Héberger soi-même est une condition de l'indépendance. À la fermeture d'Altern, ses serveurs sont prêtés à d'autres hébergeurs associatifs (L'Autre Net, Ouvaton, l'APINC). Ce maillage coopératif annonce le mouvement actuel des hébergeurs alternatifs.</p>
+      </article>
+      <article class="book" style="--c:var(--p-web)">
+        <header><span class="tag">Médias</span><h3>La publication ouverte</h3><p class="meta">Indymedia, puis réseau Mutu</p></header>
+        <p>Indymedia invente un média où chacun publie sans filtre préalable. Le principe passe aux médias libres locaux, qui ajoutent une modération collective et transparente. C'est aujourd'hui l'infrastructure de publication d'une grande partie des mouvements sociaux et de la mouvance autonome : comptes rendus de manifestations, appels, communiqués.</p>
+      </article>
+      <article class="book" style="--c:var(--p-web)">
+        <header><span class="tag">Droit</span><h3>Le statut de l'hébergeur</h3><p class="meta">Loi de 2000, LCEN de 2004</p></header>
+        <p>L'affaire Altern et la mobilisation du Web indépendant pèsent sur le débat public de l'époque. Elles posent la question qui aboutit au régime actuel : l'hébergeur n'est pas un éditeur, et il ne répond d'un contenu que s'il ne le retire pas après signalement. Le lien direct entre l'affaire et la loi est souvent raconté, mais il n'est pas démontré par les sources consultées.</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="genea">
+    <h2 id="genea">Généalogie</h2>
+    <p class="muted">D'où vient le Web indépendant, et ce qu'il a transmis.</p>
+    <div class="flow">
+      <div class="col">
+        <p class="eyebrow">Sources</p>
+        <h3>Ce dont il hérite</h3>
+        <ul>
+          <li>Le logiciel libre : GNU, GPL, Linux</li>
+          <li>La cyberculture libertaire : <i>TAZ</i> d'Hakim Bey, la Déclaration de Barlow, l'EFF</li>
+          <li>La presse alternative et les radios libres des années 1970-1980</li>
+          <li>La critique des médias de la gauche (<i>Le Monde diplomatique</i>)</li>
+          <li>L'éthique de l'entraide (Kropotkine) appliquée au code</li>
+        </ul>
+      </div>
+      <div class="col center">
+        <p class="eyebrow">1996 – 2001</p>
+        <h3>Le Web indépendant</h3>
+        <ul>
+          <li>Le minirézo et son <i>Manifeste</i> (1997)</li>
+          <li>uZine, <i>Le Scarabée</i>, rezo.net</li>
+          <li>Altern, FDN, Gitoyen</li>
+          <li>SPIP (2001)</li>
+          <li>Indymedia (1999)</li>
+        </ul>
+      </div>
+      <div class="col">
+        <p class="eyebrow">Héritiers</p>
+        <h3>Ce qu'il transmet</h3>
+        <ul>
+          <li>La Quadrature du Net (2008) : les libertés numériques</li>
+          <li>Framasoft : les alternatives libres</li>
+          <li>Le réseau Mutu : les médias libres des luttes</li>
+          <li>Les hébergeurs associatifs actuels</li>
+          <li>La critique de la surveillance et de la « Technopolice »</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="filiations">
+    <h2 id="filiations">Filiations avec les autres pôles</h2>
+    <p class="muted">Le Web indépendant n'est pas un pôle de rue. C'est un fil transversal, qui croise la plupart des courants de la <a href="genealogie.html">frise</a>.</p>
+    <div class="ties">
+      <div class="tie" style="--c:var(--p-ins)"><span class="k">Insurrectionnalistes</span><p>Seattle 1999 donne naissance la même semaine au black bloc mondialisé et à Indymedia. La rue et le média ouvert sont nés ensemble, et les comptes rendus d'actions circulent depuis par les médias libres.</p></div>
+      <div class="tie" style="--c:var(--p-app)"><span class="k">Appellistes</span><p>Une relation ambivalente. Tiqqun voit dans l'informatique le cœur du « gouvernement cybernétique », mais lundimatin (2014) est un média en ligne. Le refus des porte-parole et l'anonymat rejoignent la culture du pseudonyme du Web indépendant.</p></div>
+      <div class="tie" style="--c:var(--p-ope)"><span class="k">Post-opéraïstes</span><p>Le logiciel libre est l'exemple préféré du « capitalisme cognitif » de Moulier Boutang : la valeur y naît de la coopération en réseau, hors de la propriété exclusive. C'est la filiation intellectuelle la plus directe.</p></div>
+      <div class="tie" style="--c:var(--p-tec)"><span class="k">Technocritiques</span><p>L'opposition est frontale. Pour Pièces et main d'œuvre, le numérique est un outil de contrôle, libre ou non. Les deux camps se retrouvent pourtant contre la surveillance : vidéosurveillance algorithmique, biométrie, fichage.</p></div>
+      <div class="tie" style="--c:var(--p-afa)"><span class="k">Antifascisme</span><p>Les médias libres publient les enquêtes sur l'extrême droite et les violences policières. La Quadrature du Net documente les fichiers et la surveillance des militants.</p></div>
+      <div class="tie" style="--c:var(--p-eco)"><span class="k">Écologie radicale</span><p>Les luttes territoriales s'organisent et se racontent par les médias libres. Le coût écologique du numérique (data centers, eau, électricité) devient à son tour un objet de lutte.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="sources">
+    <h2 id="sources">Sources</h2>
+    <ul class="src">
+      <li>Minirézo, <a href="http://www.uzine.net/article60.html" rel="noopener">Manifeste du Web indépendant</a> (2 février 1997) et <a href="http://www.uzine.net/article22.html" rel="noopener">présentation du minirézo</a>, uZine.</li>
+      <li><a href="https://www.spip.net/en_article2122.html" rel="noopener">Histoire de SPIP</a>, spip.net.</li>
+      <li>ARNO*, <a href="https://www.scarabee.org/les-editos/article/reves-de-web-a-papa" rel="noopener">« Rêves de Web à papa »</a>, Le Scarabée.</li>
+      <li>Conseil constitutionnel, <a href="https://www.conseil-constitutionnel.fr/decision/2000/2000433DC.htm" rel="noopener">décision n° 2000-433 DC du 27 juillet 2000</a>.</li>
+      <li><a href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000801164" rel="noopener">Loi n° 2004-575 du 21 juin 2004 (LCEN)</a>, Légifrance.</li>
+      <li>La Quadrature du Net, <a href="https://www.laquadrature.net/en/history/" rel="noopener">histoire de l'association</a>.</li>
+      <li>B. Bayart, <a href="https://ipv4.www.fdn.fr/assets/files/transcription_minitel_2.0.pdf" rel="noopener">« Internet libre ou Minitel 2.0 »</a>, transcription, licence CC BY-SA.</li>
+      <li><a href="https://reseaumutu.info/" rel="noopener">Réseau Mutu</a> et <a href="https://libcom.org/article/mutu-network-revival-french-radical-media" rel="noopener">« The Mutu network »</a>, libcom.org (2018).</li>
+      <li><a href="https://nantes.indymedia.org/indymedia/" rel="noopener">Présentation d'Indymedia Nantes</a> ; « Indymedia vingt ans après », <a href="https://salle421.eu/2019/12/06/indymedia-vingt-ans-apres-du-premier-centre-de-medias-independants-aux-mediactivistes-des-reseaux-sociaux-1999-2019/" rel="noopener">salle421.eu</a>.</li>
+      <li><a href="https://journals.openedition.org/terminal/244" rel="noopener">Article sur les webzines et l'hébergement des années 1990</a>, revue <i>Terminal</i>.</li>
+      <li><a href="https://www.eff.org/cyberspace-independence" rel="noopener">Déclaration d'indépendance du cyberespace</a>, EFF.</li>
+    </ul>
+  </section>
+
+  <aside class="note">
+    <strong>Niveau de vérification.</strong> Les dates de cette page ont été vérifiées en ligne en octobre 2026, souvent auprès de sources secondaires. Les points encore incertains sont la date exacte de fondation du minirézo, la liste complète de ses membres et le nombre de sites hébergés par Altern à sa fermeture : les chiffres varient selon les sources.
+  </aside>
+
+  <footer>
+    <span>Généalogies autonomes · octobre 2026</span>
+    <span>Site d'histoire des idées, à visée documentaire.</span>
+  </footer>
+
+</div>
+</body>
+</html>
